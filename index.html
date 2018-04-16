@@ -56,9 +56,36 @@
 			filter_cssFilter: [
 				'form-control',
 				'form-control',
-				'form-control custom-select', // select needs custom class names :(
 				'form-control',
 				'form-control',
+				'form-control',
+				'form-control',
+				'form-control',
+				'form-control',
+                'form-control',
+				'form-control',
+				'form-control',
+				'form-control',
+				'form-control',
+				'form-control',
+				'form-control',
+                'form-control',
+				'form-control',
+				'form-control',
+				'form-control',
+				'form-control',
+				'form-control',
+				'form-control',
+                'form-control',
+				'form-control',
+				'form-control', 
+				'form-control',
+				'form-control',
+				'form-control',
+				'form-control',
+                'form-control',
+				'form-control',
+				'form-control', 
 				'form-control',
 				'form-control'
 			]
@@ -127,16 +154,46 @@
 	<div id="demo"><table class="table table-bordered table-striped">
 	<thead class="thead-dark"> <!-- add class="thead-light" for a light header -->
 		<tr>
-			<th>Name</th>
-			<th>Major</th>
-			<th class="filter-select filter-exact" data-placeholder="Pick a gender">Sex</th>
-			<th>English</th>
-			<th>Japanese</th>
-			<th>Calculus</th>
-			<th class="sorter-false filter-false">Geometry</th></tr>
+			<!--<th class="filter-select filter-exact" data-placeholder="Pick a gender">Sex</th>-->
+			<!--<th class="sorter-false filter-false">Geometry</th>-->
+<th></th>
+<th>RJT ready</th>
+<th>Rey (Jedi Training)</th>
+<th>BB-8</th>
+<th>R2-D2</th>
+<th>Resistance Pilot</th>
+<th>Rey (Scavenger)</th>
+<th>NSis ready</th>
+<th>Mother Talzin</th>
+<th>Asajj Ventress</th>
+<th>Old Daka</th>
+<th>Nightsister Acolyte</th>
+<th>Nightsister Zombie</th>
+<th>Talia</th>
+<th>ImpT ready</th>
+<th>General Veers</th>
+<th>Colonel Starck</th>
+<th>Shoretrooper</th>
+<th>Snowtrooper</th>
+<th>Grand Admiral Thrawn</th>
+<th>ChexMix ready</th>
+<th>Commander Luke Skywalker</th>
+<th>Han Solo</th>
+<th>Death Trooper</th>
+<th>Pao</th>
+<th>Jedi Knight Anakin</th>
+<th>CT-7567 "Rex"</th>
+<th>Chirrut Îmwe</th>
+<th>Palp ready</th>
+<th>Emperor Palpatine</th>
+<th>Darth Vader</th>
+<th>Sith Trooper</th>
+<th>Grand Moff Tarkin</th>
+<th>Darth Nihilus</th>
+        </tr>
 	</thead>
 	<tfoot>
-		<tr>
+		<!--<tr>
 			<th>Name</th>
 			<th>Major</th>
 			<th>Sex</th>
@@ -144,7 +201,7 @@
 			<th>Japanese</th>
 			<th>Calculus</th>
 			<th>Geometry</th>
-		</tr>
+		</tr>-->
 		<tr>
 			<th colspan="7" class="ts-pager">
 				<div class="form-inline">
@@ -166,59 +223,61 @@
 					<select class="form-control-sm custom-select px-4 mx-1 pagenum" title="Select page number"></select>
 				</div>
 			</th>
+            <th colspan="27">
+			</th>
 		</tr>
 	</tfoot>
 	<tbody>
-		<tr><td>Student01</td><td>Languages</td><td>male</td><td>80</td><td>70</td><td>75</td><td>80</td></tr>
-		<tr><td>Student02</td><td>Mathematics</td><td>male</td><td>90</td><td>88</td><td>100</td><td>90</td></tr>
-		<tr><td>Student03</td><td>Languages</td><td>female</td><td>85</td><td>95</td><td>80</td><td>85</td></tr>
-		<tr><td>Student04</td><td>Languages</td><td>male</td><td>60</td><td>55</td><td>100</td><td>100</td></tr>
-		<tr><td>Student05</td><td>Languages</td><td>female</td><td>68</td><td>80</td><td>95</td><td>80</td></tr>
-		<tr><td>Student06</td><td>Mathematics</td><td>male</td><td>100</td><td>99</td><td>100</td><td>90</td></tr>
-		<tr><td>Student07</td><td>Mathematics</td><td>male</td><td>85</td><td>68</td><td>90</td><td>90</td></tr>
-		<tr><td>Student08</td><td>Languages</td><td>male</td><td>100</td><td>90</td><td>90</td><td>85</td></tr>
-		<tr><td>Student09</td><td>Mathematics</td><td>male</td><td>80</td><td>50</td><td>65</td><td>75</td></tr>
-		<tr><td>Student10</td><td>Languages</td><td>male</td><td>85</td><td>100</td><td>100</td><td>90</td></tr>
-		<tr><td>Student11</td><td>Languages</td><td>male</td><td>86</td><td>85</td><td>100</td><td>100</td></tr>
-		<tr><td>Student12</td><td>Mathematics</td><td>female</td><td>100</td><td>75</td><td>70</td><td>85</td></tr>
-		<tr><td>Student13</td><td>Languages</td><td>female</td><td>100</td><td>80</td><td>100</td><td>90</td></tr>
-		<tr><td>Student14</td><td>Languages</td><td>female</td><td>50</td><td>45</td><td>55</td><td>90</td></tr>
-		<tr><td>Student15</td><td>Languages</td><td>male</td><td>95</td><td>35</td><td>100</td><td>90</td></tr>
-		<tr><td>Student16</td><td>Languages</td><td>female</td><td>100</td><td>50</td><td>30</td><td>70</td></tr>
-		<tr><td>Student17</td><td>Languages</td><td>female</td><td>80</td><td>100</td><td>55</td><td>65</td></tr>
-		<tr><td>Student18</td><td>Mathematics</td><td>male</td><td>30</td><td>49</td><td>55</td><td>75</td></tr>
-		<tr><td>Student19</td><td>Languages</td><td>male</td><td>68</td><td>90</td><td>88</td><td>70</td></tr>
-		<tr><td>Student20</td><td>Mathematics</td><td>male</td><td>40</td><td>45</td><td>40</td><td>80</td></tr>
-		<tr><td>Student21</td><td>Languages</td><td>male</td><td>50</td><td>45</td><td>100</td><td>100</td></tr>
-		<tr><td>Student22</td><td>Mathematics</td><td>male</td><td>100</td><td>99</td><td>100</td><td>90</td></tr>
-		<tr><td>Student23</td><td>Mathematics</td><td>male</td><td>82</td><td>77</td><td>0</td><td>79</td></tr>
-		<tr><td>Student24</td><td>Languages</td><td>female</td><td>100</td><td>91</td><td>13</td><td>82</td></tr>
-		<tr><td>Student25</td><td>Mathematics</td><td>male</td><td>22</td><td>96</td><td>82</td><td>53</td></tr>
-		<tr><td>Student26</td><td>Languages</td><td>female</td><td>37</td><td>29</td><td>56</td><td>59</td></tr>
-		<tr><td>Student27</td><td>Mathematics</td><td>male</td><td>86</td><td>82</td><td>69</td><td>23</td></tr>
-		<tr><td>Student28</td><td>Languages</td><td>female</td><td>44</td><td>25</td><td>43</td><td>1</td></tr>
-		<tr><td>Student29</td><td>Mathematics</td><td>male</td><td>77</td><td>47</td><td>22</td><td>38</td></tr>
-		<tr><td>Student30</td><td>Languages</td><td>female</td><td>19</td><td>35</td><td>23</td><td>10</td></tr>
-		<tr><td>Student31</td><td>Mathematics</td><td>male</td><td>90</td><td>27</td><td>17</td><td>50</td></tr>
-		<tr><td>Student32</td><td>Languages</td><td>female</td><td>60</td><td>75</td><td>33</td><td>38</td></tr>
-		<tr><td>Student33</td><td>Mathematics</td><td>male</td><td>4</td><td>31</td><td>37</td><td>15</td></tr>
-		<tr><td>Student34</td><td>Languages</td><td>female</td><td>77</td><td>97</td><td>81</td><td>44</td></tr>
-		<tr><td>Student35</td><td>Mathematics</td><td>male</td><td>5</td><td>81</td><td>51</td><td>95</td></tr>
-		<tr><td>Student36</td><td>Languages</td><td>female</td><td>70</td><td>61</td><td>70</td><td>94</td></tr>
-		<tr><td>Student37</td><td>Mathematics</td><td>male</td><td>60</td><td>3</td><td>61</td><td>84</td></tr>
-		<tr><td>Student38</td><td>Languages</td><td>female</td><td>63</td><td>39</td><td>0</td><td>11</td></tr>
-		<tr><td>Student39</td><td>Mathematics</td><td>male</td><td>50</td><td>46</td><td>32</td><td>38</td></tr>
-		<tr><td>Student40</td><td>Languages</td><td>female</td><td>51</td><td>75</td><td>25</td><td>3</td></tr>
-		<tr><td>Student41</td><td>Mathematics</td><td>male</td><td>43</td><td>34</td><td>28</td><td>78</td></tr>
-		<tr><td>Student42</td><td>Languages</td><td>female</td><td>11</td><td>89</td><td>60</td><td>95</td></tr>
-		<tr><td>Student43</td><td>Mathematics</td><td>male</td><td>48</td><td>92</td><td>18</td><td>88</td></tr>
-		<tr><td>Student44</td><td>Languages</td><td>female</td><td>82</td><td>2</td><td>59</td><td>73</td></tr>
-		<tr><td>Student45</td><td>Mathematics</td><td>male</td><td>91</td><td>73</td><td>37</td><td>39</td></tr>
-		<tr><td>Student46</td><td>Languages</td><td>female</td><td>4</td><td>8</td><td>12</td><td>10</td></tr>
-		<tr><td>Student47</td><td>Mathematics</td><td>male</td><td>89</td><td>10</td><td>6</td><td>11</td></tr>
-		<tr><td>Student48</td><td>Languages</td><td>female</td><td>90</td><td>32</td><td>21</td><td>18</td></tr>
-		<tr><td>Student49</td><td>Mathematics</td><td>male</td><td>42</td><td>49</td><td>49</td><td>72</td></tr>
-		<tr><td>Student50</td><td>Languages</td><td>female</td><td>56</td><td>37</td><td>67</td><td>54</td></tr>
+<tr><td>FΩD DarthTyranus</td><td>ja</td><td>81.41</td><td>86.75</td><td>89.50</td><td>84.73</td><td>80.79</td><td>ja</td><td>44.16</td><td>65.04</td><td>63.80</td><td>75.20</td><td>45.52</td><td>70.02</td><td>ja</td><td>81.23</td><td>80.84</td><td>81.77</td><td>90.44</td><td>88.29</td><td>ja</td><td>71.31</td><td>93.86</td><td>81.79</td><td>63.69</td><td>86.12</td><td>48.32</td><td>63.89</td><td>ja</td><td>85.88</td><td>85.88</td><td>74.05</td><td>72.79</td><td>64.08</td></tr>
+<tr><td>Ringlo</td><td>nein</td><td>0.00</td><td>85.83</td><td>82.43</td><td>81.95</td><td>79.80</td><td>nein</td><td>2.95</td><td>55.71</td><td>23.36</td><td>9.58</td><td>3.99</td><td>67.09</td><td>nein</td><td>63.15</td><td>44.38</td><td>5.98</td><td>68.62</td><td>77.16</td><td>ja</td><td>89.08</td><td>98.95</td><td>38.03</td><td>23.36</td><td>66.84</td><td>72.30</td><td>77.35</td><td>nein</td><td>86.75</td><td>84.15</td><td>5.98</td><td>67.97</td><td>4.43</td></tr>
+<tr><td>DK Yami</td><td>nein</td><td>0.00</td><td>53.11</td><td>97.67</td><td>77.58</td><td>67.46</td><td>ja</td><td>16.58</td><td>69.21</td><td>74.26</td><td>30.07</td><td>24.41</td><td>82.88</td><td>ja</td><td>60.57</td><td>43.06</td><td>87.82</td><td>62.26</td><td>71.33</td><td>ja</td><td>69.25</td><td>96.99</td><td>74.03</td><td>10.64</td><td>44.39</td><td>95.75</td><td>90.05</td><td>ja</td><td>92.43</td><td>86.75</td><td>94.44</td><td>55.24</td><td>87.80</td></tr>
+<tr><td>Exor Lupos</td><td>ja</td><td>80.35</td><td>77.16</td><td>86.46</td><td>69.87</td><td>79.80</td><td>ja</td><td>50.29</td><td>83.10</td><td>76.37</td><td>85.92</td><td>53.82</td><td>69.94</td><td>ja</td><td>89.03</td><td>50.95</td><td>44.13</td><td>73.34</td><td>76.25</td><td>ja</td><td>98.12</td><td>97.56</td><td>17.05</td><td>28.96</td><td>64.69</td><td>86.43</td><td>92.52</td><td>nein</td><td>89.50</td><td>88.58</td><td>25.81</td><td>75.96</td><td>76.25</td></tr>
+<tr><td>FΩD TheOnlyGH</td><td>ja</td><td>89.08</td><td>95.52</td><td>88.58</td><td>63.31</td><td>78.14</td><td>ja</td><td>48.19</td><td>70.56</td><td>68.12</td><td>95.50</td><td>55.37</td><td>71.28</td><td>nein</td><td>39.17</td><td>24.16</td><td>49.53</td><td>62.47</td><td>87.09</td><td>ja</td><td>89.90</td><td>97.23</td><td>38.82</td><td>23.36</td><td>72.15</td><td>87.74</td><td>78.33</td><td>ja</td><td>71.06</td><td>84.60</td><td>75.78</td><td>63.64</td><td>74.60</td></tr>
+<tr><td>HansVader</td><td>ja</td><td>89.64</td><td>80.65</td><td>99.08</td><td>91.50</td><td>78.80</td><td>nein</td><td>28.08</td><td>45.00</td><td>43.07</td><td>29.58</td><td>25.79</td><td>37.60</td><td>ja</td><td>72.15</td><td>75.48</td><td>84.71</td><td>89.27</td><td>96.96</td><td>ja</td><td>79.79</td><td>97.89</td><td>80.79</td><td>23.36</td><td>76.44</td><td>41.18</td><td>76.68</td><td>ja</td><td>80.99</td><td>81.56</td><td>27.47</td><td>64.89</td><td>67.68</td></tr>
+<tr><td>troubIem4ker</td><td>ja</td><td>74.39</td><td>74.52</td><td>89.21</td><td>88.35</td><td>90.88</td><td>nein</td><td>30.11</td><td>53.88</td><td>55.94</td><td>46.50</td><td>30.11</td><td>44.55</td><td>ja</td><td>84.77</td><td>51.77</td><td>86.14</td><td>82.79</td><td>88.58</td><td>nein</td><td>81.41</td><td>93.20</td><td>77.03</td><td>16.60</td><td>33.11</td><td>96.40</td><td>28.26</td><td>nein</td><td>71.92</td><td>86.46</td><td>18.95</td><td>60.75</td><td>46.96</td></tr>
+<tr><td>Watchman Bombassa</td><td>ja</td><td>77.21</td><td>83.81</td><td>98.17</td><td>61.95</td><td>78.80</td><td>nein</td><td>42.38</td><td>41.02</td><td>56.15</td><td>8.97</td><td>40.80</td><td>58.06</td><td>ja</td><td>72.81</td><td>65.50</td><td>72.28</td><td>67.73</td><td>87.66</td><td>ja</td><td>100.00</td><td>96.84</td><td>73.16</td><td>23.36</td><td>0.00</td><td>84.32</td><td>96.52</td><td>nein</td><td>72.79</td><td>86.46</td><td>7.91</td><td>67.39</td><td>73.65</td></tr>
+<tr><td>Bexis</td><td>nein</td><td>0.00</td><td>48.81</td><td>100.00</td><td>69.48</td><td>60.16</td><td>nein</td><td>15.17</td><td>27.15</td><td>45.11</td><td>25.26</td><td>14.53</td><td>23.80</td><td>nein</td><td>36.33</td><td>36.57</td><td>45.39</td><td>66.23</td><td>79.72</td><td>nein</td><td>90.45</td><td>91.30</td><td>12.05</td><td>11.72</td><td>23.61</td><td>88.32</td><td>86.39</td><td>nein</td><td>68.52</td><td>86.46</td><td>15.93</td><td>62.16</td><td>72.29</td></tr>
+<tr><td>HanDrangSolo</td><td>ja</td><td>90.71</td><td>67.31</td><td>99.42</td><td>69.78</td><td>90.55</td><td>nein</td><td>35.17</td><td>56.53</td><td>54.32</td><td>14.52</td><td>33.92</td><td>52.11</td><td>nein</td><td>69.97</td><td>57.62</td><td>5.98</td><td>65.71</td><td>62.16</td><td>ja</td><td>99.75</td><td>100.00</td><td>59.03</td><td>36.78</td><td>77.69</td><td>66.19</td><td>88.61</td><td>nein</td><td>80.29</td><td>88.29</td><td>16.91</td><td>67.89</td><td>39.42</td></tr>
+<tr><td>ॐgotshiॐ</td><td>nein</td><td>0.00</td><td>89.50</td><td>89.50</td><td>63.70</td><td>76.14</td><td>ja</td><td>45.20</td><td>67.97</td><td>78.41</td><td>63.28</td><td>47.40</td><td>51.75</td><td>nein</td><td>79.80</td><td>64.63</td><td>28.59</td><td>71.76</td><td>76.25</td><td>ja</td><td>90.71</td><td>98.95</td><td>20.15</td><td>58.56</td><td>86.22</td><td>96.40</td><td>76.72</td><td>nein</td><td>86.75</td><td>87.66</td><td>12.13</td><td>70.29</td><td>22.17</td></tr>
+<tr><td>Bruenor</td><td>ja</td><td>80.60</td><td>70.00</td><td>100.00</td><td>89.14</td><td>80.46</td><td>ja</td><td>44.91</td><td>80.02</td><td>68.55</td><td>94.44</td><td>42.66</td><td>77.97</td><td>ja</td><td>92.29</td><td>81.45</td><td>88.23</td><td>91.61</td><td>79.00</td><td>ja</td><td>81.41</td><td>100.00</td><td>78.80</td><td>67.97</td><td>67.54</td><td>91.88</td><td>72.83</td><td>ja</td><td>73.38</td><td>84.15</td><td>47.73</td><td>75.38</td><td>72.79</td></tr>
+<tr><td>Faceless</td><td>ja</td><td>90.71</td><td>78.08</td><td>100.00</td><td>68.51</td><td>79.47</td><td>ja</td><td>33.22</td><td>58.58</td><td>71.43</td><td>64.37</td><td>50.13</td><td>72.07</td><td>ja</td><td>73.48</td><td>67.97</td><td>67.64</td><td>75.42</td><td>89.50</td><td>ja</td><td>81.16</td><td>99.67</td><td>63.47</td><td>15.87</td><td>91.88</td><td>87.99</td><td>35.09</td><td>ja</td><td>99.71</td><td>78.71</td><td>70.78</td><td>70.87</td><td>71.92</td></tr>
+<tr><td>protONe</td><td>nein</td><td>0.00</td><td>85.66</td><td>99.08</td><td>73.63</td><td>77.90</td><td>ja</td><td>22.14</td><td>69.23</td><td>50.68</td><td>25.90</td><td>31.37</td><td>77.62</td><td>nein</td><td>9.34</td><td>36.59</td><td>10.98</td><td>60.41</td><td>54.61</td><td>ja</td><td>100.00</td><td>97.89</td><td>8.82</td><td>9.34</td><td>75.91</td><td>96.40</td><td>97.44</td><td>nein</td><td>67.97</td><td>83.29</td><td>10.43</td><td>69.51</td><td>86.75</td></tr>
+<tr><td>MaceॐNow</td><td>nein</td><td>0.00</td><td>73.65</td><td>89.50</td><td>72.61</td><td>81.79</td><td>ja</td><td>45.77</td><td>69.51</td><td>76.14</td><td>70.40</td><td>55.37</td><td>87.60</td><td>nein</td><td>64.35</td><td>61.72</td><td>30.20</td><td>68.49</td><td>77.16</td><td>ja</td><td>100.00</td><td>100.00</td><td>14.11</td><td>34.07</td><td>95.27</td><td>97.60</td><td>73.53</td><td>nein</td><td>74.23</td><td>87.66</td><td>25.60</td><td>77.16</td><td>71.92</td></tr>
+<tr><td>FΩD ReVox</td><td>ja</td><td>78.98</td><td>76.87</td><td>97.25</td><td>91.50</td><td>78.80</td><td>ja</td><td>50.88</td><td>83.81</td><td>73.31</td><td>85.10</td><td>51.12</td><td>84.20</td><td>ja</td><td>93.86</td><td>81.45</td><td>89.27</td><td>90.44</td><td>87.66</td><td>ja</td><td>89.90</td><td>98.62</td><td>75.25</td><td>62.97</td><td>76.65</td><td>95.65</td><td>96.52</td><td>ja</td><td>98.80</td><td>88.58</td><td>96.28</td><td>71.92</td><td>76.25</td></tr>
+<tr><td>BladeXXL</td><td>nein</td><td>0.00</td><td>75.33</td><td>61.88</td><td>81.09</td><td>81.45</td><td>ja</td><td>42.82</td><td>85.83</td><td>82.78</td><td>71.30</td><td>51.79</td><td>63.00</td><td>ja</td><td>83.11</td><td>83.44</td><td>96.28</td><td>86.14</td><td>89.50</td><td>ja</td><td>78.98</td><td>96.84</td><td>87.93</td><td>31.97</td><td>73.51</td><td>93.77</td><td>77.35</td><td>ja</td><td>100.00</td><td>100.00</td><td>56.21</td><td>77.16</td><td>89.50</td></tr>
+<tr><td>Rustikal</td><td>nein</td><td>0.00</td><td>59.98</td><td>89.50</td><td>36.69</td><td>65.10</td><td>ja</td><td>62.78</td><td>64.94</td><td>69.45</td><td>74.54</td><td>57.00</td><td>62.84</td><td>nein</td><td>52.70</td><td>67.26</td><td>0.00</td><td>69.61</td><td>48.26</td><td>ja</td><td>89.02</td><td>36.61</td><td>6.52</td><td>6.61</td><td>52.09</td><td>88.67</td><td>80.73</td><td>ja</td><td>87.38</td><td>75.75</td><td>92.83</td><td>61.08</td><td>89.50</td></tr>
+<tr><td>FΩD Swiftmind</td><td>ja</td><td>81.41</td><td>71.87</td><td>85.88</td><td>76.23</td><td>80.79</td><td>nein</td><td>4.43</td><td>62.39</td><td>58.87</td><td>33.34</td><td>3.99</td><td>57.75</td><td>ja</td><td>49.81</td><td>55.82</td><td>56.56</td><td>64.15</td><td>89.50</td><td>ja</td><td>81.41</td><td>89.10</td><td>14.29</td><td>28.95</td><td>32.80</td><td>50.71</td><td>77.65</td><td>ja</td><td>70.29</td><td>76.02</td><td>64.15</td><td>58.82</td><td>39.39</td></tr>
+<tr><td>SB Tubifex</td><td>ja</td><td>78.98</td><td>86.75</td><td>98.17</td><td>89.14</td><td>78.80</td><td>ja</td><td>68.26</td><td>97.88</td><td>82.57</td><td>96.74</td><td>61.78</td><td>80.84</td><td>ja</td><td>90.64</td><td>74.59</td><td>86.14</td><td>78.97</td><td>76.25</td><td>ja</td><td>89.90</td><td>96.84</td><td>81.45</td><td>48.01</td><td>91.51</td><td>98.80</td><td>85.93</td><td>ja</td><td>83.29</td><td>73.65</td><td>67.77</td><td>61.88</td><td>76.25</td></tr>
+<tr><td>Mettbrötchen</td><td>nein</td><td>0.00</td><td>72.79</td><td>87.38</td><td>89.93</td><td>77.81</td><td>nein</td><td>17.51</td><td>63.15</td><td>69.68</td><td>71.25</td><td>36.22</td><td>72.01</td><td>ja</td><td>96.84</td><td>77.81</td><td>72.28</td><td>90.05</td><td>89.21</td><td>ja</td><td>81.16</td><td>97.56</td><td>48.74</td><td>8.90</td><td>76.89</td><td>73.60</td><td>71.61</td><td>ja</td><td>75.96</td><td>96.96</td><td>61.05</td><td>74.60</td><td>83.29</td></tr>
+<tr><td>Lakkes93</td><td>ja</td><td>100.00</td><td>83.87</td><td>100.00</td><td>88.15</td><td>79.80</td><td>ja</td><td>86.46</td><td>75.96</td><td>70.03</td><td>96.28</td><td>79.84</td><td>59.49</td><td>ja</td><td>64.52</td><td>62.04</td><td>82.17</td><td>67.41</td><td>88.58</td><td>ja</td><td>100.00</td><td>99.67</td><td>74.36</td><td>37.70</td><td>91.88</td><td>96.40</td><td>96.52</td><td>ja</td><td>97.25</td><td>76.25</td><td>60.88</td><td>61.98</td><td>76.25</td></tr>
+<tr><td>DK BenWalker</td><td>ja</td><td>78.98</td><td>71.06</td><td>88.58</td><td>70.23</td><td>79.80</td><td>ja</td><td>43.76</td><td>63.81</td><td>63.34</td><td>51.41</td><td>52.04</td><td>73.74</td><td>ja</td><td>75.92</td><td>74.36</td><td>86.14</td><td>73.94</td><td>88.58</td><td>ja</td><td>99.19</td><td>97.89</td><td>61.10</td><td>62.40</td><td>90.76</td><td>91.88</td><td>72.87</td><td>ja</td><td>87.66</td><td>86.75</td><td>76.14</td><td>69.51</td><td>77.16</td></tr>
+<tr><td>FΩD Freddy Fuchur</td><td>ja</td><td>77.45</td><td>76.02</td><td>87.66</td><td>62.43</td><td>78.47</td><td>ja</td><td>48.24</td><td>63.05</td><td>61.32</td><td>75.80</td><td>66.35</td><td>34.16</td><td>ja</td><td>53.14</td><td>52.72</td><td>87.18</td><td>50.65</td><td>89.50</td><td>ja</td><td>80.60</td><td>96.51</td><td>58.98</td><td>42.75</td><td>90.76</td><td>96.40</td><td>66.26</td><td>ja</td><td>74.52</td><td>86.75</td><td>59.59</td><td>74.23</td><td>68.74</td></tr>
+<tr><td>Zossenfighter CS</td><td>nein</td><td>0.00</td><td>81.56</td><td>97.25</td><td>66.55</td><td>78.80</td><td>nein</td><td>2.95</td><td>69.51</td><td>59.99</td><td>2.66</td><td>5.98</td><td>69.11</td><td>ja</td><td>43.22</td><td>39.03</td><td>89.27</td><td>65.57</td><td>86.75</td><td>ja</td><td>97.57</td><td>96.84</td><td>17.54</td><td>23.36</td><td>89.63</td><td>90.76</td><td>96.52</td><td>nein</td><td>76.25</td><td>80.78</td><td>5.98</td><td>62.16</td><td>72.79</td></tr>
+<tr><td>DeadlyFX aka ACID Heok</td><td>ja</td><td>78.98</td><td>76.25</td><td>99.08</td><td>95.05</td><td>80.79</td><td>ja</td><td>52.31</td><td>71.82</td><td>76.64</td><td>83.47</td><td>52.56</td><td>84.01</td><td>ja</td><td>83.77</td><td>82.78</td><td>96.28</td><td>89.13</td><td>97.25</td><td>ja</td><td>100.00</td><td>96.84</td><td>84.77</td><td>64.19</td><td>95.27</td><td>96.40</td><td>96.52</td><td>ja</td><td>76.25</td><td>86.75</td><td>96.28</td><td>76.25</td><td>87.66</td></tr>
+<tr><td>Lenox</td><td>nein</td><td>0.00</td><td>68.60</td><td>79.73</td><td>65.91</td><td>77.57</td><td>nein</td><td>30.32</td><td>66.86</td><td>46.16</td><td>15.78</td><td>29.11</td><td>28.56</td><td>nein</td><td>51.47</td><td>58.64</td><td>14.52</td><td>74.75</td><td>66.62</td><td>nein</td><td>90.71</td><td>99.67</td><td>3.39</td><td>2.26</td><td>0.00</td><td>100.00</td><td>40.05</td><td>nein</td><td>72.50</td><td>83.29</td><td>17.55</td><td>68.31</td><td>79.00</td></tr>
+<tr><td>skugde</td><td>nein</td><td>0.00</td><td>68.19</td><td>99.08</td><td>73.90</td><td>78.80</td><td>ja</td><td>36.12</td><td>55.91</td><td>23.36</td><td>8.97</td><td>50.74</td><td>77.98</td><td>ja</td><td>49.88</td><td>63.17</td><td>54.97</td><td>62.24</td><td>51.61</td><td>ja</td><td>99.19</td><td>98.95</td><td>3.39</td><td>2.26</td><td>91.88</td><td>26.57</td><td>93.24</td><td>nein</td><td>86.75</td><td>84.15</td><td>5.98</td><td>60.80</td><td>73.65</td></tr>
+<tr><td>Bizkit</td><td>nein</td><td>0.00</td><td>68.94</td><td>87.66</td><td>70.80</td><td>63.00</td><td>ja</td><td>47.81</td><td>54.70</td><td>41.24</td><td>35.13</td><td>31.38</td><td>47.30</td><td>ja</td><td>57.51</td><td>67.97</td><td>92.78</td><td>56.22</td><td>89.50</td><td>ja</td><td>89.69</td><td>95.94</td><td>81.12</td><td>2.26</td><td>5.79</td><td>96.40</td><td>64.67</td><td>ja</td><td>87.17</td><td>79.73</td><td>74.40</td><td>76.25</td><td>100.00</td></tr>
+<tr><td>FΩD Larykk</td><td>ja</td><td>78.98</td><td>83.29</td><td>89.50</td><td>74.72</td><td>77.92</td><td>nein</td><td>8.69</td><td>34.20</td><td>23.92</td><td>0.00</td><td>13.38</td><td>22.25</td><td>nein</td><td>38.07</td><td>16.80</td><td>20.42</td><td>50.99</td><td>66.62</td><td>ja</td><td>78.98</td><td>96.84</td><td>12.11</td><td>19.43</td><td>38.20</td><td>69.38</td><td>58.08</td><td>nein</td><td>75.67</td><td>75.97</td><td>0.00</td><td>60.48</td><td>86.75</td></tr>
+<tr><td>Torham</td><td>ja</td><td>80.60</td><td>83.29</td><td>98.17</td><td>75.12</td><td>78.80</td><td>nein</td><td>18.14</td><td>45.73</td><td>48.21</td><td>13.19</td><td>20.94</td><td>34.67</td><td>nein</td><td>47.05</td><td>53.14</td><td>38.84</td><td>60.36</td><td>87.66</td><td>ja</td><td>81.41</td><td>97.89</td><td>40.82</td><td>15.73</td><td>72.64</td><td>96.03</td><td>24.19</td><td>nein</td><td>71.35</td><td>83.87</td><td>0.00</td><td>74.23</td><td>59.18</td></tr>
+<tr><td>Snow xy</td><td>ja</td><td>81.41</td><td>85.83</td><td>86.75</td><td>96.24</td><td>78.80</td><td>nein</td><td>38.44</td><td>64.26</td><td>57.75</td><td>13.65</td><td>23.28</td><td>47.30</td><td>nein</td><td>71.33</td><td>43.13</td><td>47.40</td><td>69.60</td><td>87.66</td><td>ja</td><td>90.71</td><td>74.36</td><td>45.48</td><td>25.59</td><td>80.75</td><td>60.30</td><td>0.00</td><td>nein</td><td>88.58</td><td>97.25</td><td>18.84</td><td>69.37</td><td>87.66</td></tr>
+<tr><td>SF Kylvader</td><td>ja</td><td>73.71</td><td>65.52</td><td>97.88</td><td>73.13</td><td>70.99</td><td>nein</td><td>39.92</td><td>52.24</td><td>62.15</td><td>45.14</td><td>33.90</td><td>38.95</td><td>ja</td><td>88.77</td><td>71.71</td><td>87.18</td><td>88.23</td><td>88.58</td><td>ja</td><td>90.71</td><td>97.89</td><td>82.78</td><td>3.39</td><td>65.21</td><td>93.77</td><td>96.15</td><td>ja</td><td>87.66</td><td>86.75</td><td>64.15</td><td>69.51</td><td>86.75</td></tr>
+<tr><td>Alhina</td><td>nein</td><td>0.00</td><td>72.79</td><td>98.80</td><td>72.27</td><td>71.71</td><td>ja</td><td>84.22</td><td>85.88</td><td>79.33</td><td>92.39</td><td>61.60</td><td>88.99</td><td>nein</td><td>5.09</td><td>50.10</td><td>92.78</td><td>67.28</td><td>80.92</td><td>ja</td><td>100.00</td><td>99.34</td><td>10.12</td><td>7.63</td><td>77.58</td><td>91.13</td><td>96.52</td><td>ja</td><td>72.79</td><td>83.95</td><td>68.59</td><td>70.42</td><td>58.68</td></tr>
+<tr><td>Kyle</td><td>ja</td><td>96.62</td><td>72.79</td><td>87.66</td><td>70.41</td><td>78.47</td><td>nein</td><td>20.90</td><td>60.93</td><td>56.92</td><td>48.59</td><td>24.46</td><td>72.63</td><td>ja</td><td>63.47</td><td>63.24</td><td>73.32</td><td>82.88</td><td>88.29</td><td>ja</td><td>89.90</td><td>98.95</td><td>68.79</td><td>4.19</td><td>43.19</td><td>89.63</td><td>93.24</td><td>nein</td><td>86.17</td><td>77.79</td><td>42.44</td><td>41.53</td><td>86.46</td></tr>
+<tr><td>DK m0x1337</td><td>nein</td><td>0.00</td><td>56.00</td><td>87.80</td><td>88.74</td><td>72.31</td><td>nein</td><td>13.45</td><td>39.60</td><td>45.92</td><td>24.47</td><td>31.87</td><td>68.00</td><td>ja</td><td>36.36</td><td>40.46</td><td>49.43</td><td>63.94</td><td>28.13</td><td>ja</td><td>81.16</td><td>96.18</td><td>11.24</td><td>7.32</td><td>80.71</td><td>78.71</td><td>74.97</td><td>ja</td><td>70.09</td><td>80.84</td><td>51.05</td><td>55.93</td><td>28.61</td></tr>
+<tr><td>KA1NSK1ND</td><td>nein</td><td>0.00</td><td>40.48</td><td>100.00</td><td>66.21</td><td>63.15</td><td>ja</td><td>41.02</td><td>65.25</td><td>67.34</td><td>52.38</td><td>42.66</td><td>77.47</td><td>nein</td><td>41.70</td><td>20.91</td><td>0.00</td><td>62.24</td><td>46.59</td><td>nein</td><td>100.00</td><td>100.00</td><td>8.87</td><td>7.53</td><td>0.00</td><td>34.43</td><td>39.07</td><td>nein</td><td>71.33</td><td>84.15</td><td>18.45</td><td>73.85</td><td>72.79</td></tr>
+<tr><td>Alpha</td><td>ja</td><td>79.79</td><td>84.91</td><td>86.75</td><td>68.24</td><td>83.71</td><td>ja</td><td>100.00</td><td>99.08</td><td>85.82</td><td>97.52</td><td>55.10</td><td>97.60</td><td>ja</td><td>96.84</td><td>84.77</td><td>96.28</td><td>98.76</td><td>88.58</td><td>ja</td><td>81.41</td><td>85.49</td><td>84.43</td><td>23.41</td><td>77.53</td><td>50.95</td><td>97.68</td><td>ja</td><td>86.75</td><td>86.75</td><td>93.88</td><td>89.50</td><td>76.25</td></tr>
+<tr><td>Æco</td><td>nein</td><td>0.00</td><td>70.29</td><td>84.73</td><td>92.69</td><td>78.80</td><td>ja</td><td>69.12</td><td>72.74</td><td>79.74</td><td>92.78</td><td>59.69</td><td>60.57</td><td>ja</td><td>82.78</td><td>79.80</td><td>77.50</td><td>92.78</td><td>86.46</td><td>ja</td><td>79.79</td><td>94.85</td><td>70.78</td><td>61.80</td><td>79.92</td><td>72.36</td><td>94.33</td><td>ja</td><td>89.50</td><td>87.66</td><td>51.13</td><td>73.36</td><td>87.66</td></tr>
+<tr><td>Lanjesus</td><td>ja</td><td>89.90</td><td>86.75</td><td>87.66</td><td>49.78</td><td>78.80</td><td>ja</td><td>39.70</td><td>70.14</td><td>62.41</td><td>52.55</td><td>47.32</td><td>24.98</td><td>ja</td><td>71.37</td><td>66.74</td><td>81.10</td><td>73.34</td><td>86.46</td><td>ja</td><td>78.73</td><td>79.47</td><td>69.94</td><td>38.09</td><td>33.74</td><td>69.59</td><td>96.52</td><td>ja</td><td>86.75</td><td>87.66</td><td>78.40</td><td>62.47</td><td>72.74</td></tr>
+<tr><td>FΩD Hashtag</td><td>nein</td><td>0.00</td><td>76.25</td><td>97.89</td><td>63.02</td><td>75.81</td><td>ja</td><td>66.24</td><td>49.05</td><td>58.41</td><td>0.00</td><td>41.60</td><td>43.11</td><td>ja</td><td>82.85</td><td>70.28</td><td>96.28</td><td>87.64</td><td>97.25</td><td>ja</td><td>99.49</td><td>96.84</td><td>96.84</td><td>56.95</td><td>11.08</td><td>98.80</td><td>52.22</td><td>ja</td><td>87.38</td><td>86.46</td><td>50.22</td><td>71.92</td><td>85.88</td></tr>
+<tr><td>FΩD Dorinur</td><td>ja</td><td>81.41</td><td>72.74</td><td>100.00</td><td>74.26</td><td>79.80</td><td>ja</td><td>45.20</td><td>99.08</td><td>74.20</td><td>91.22</td><td>55.49</td><td>92.95</td><td>ja</td><td>80.79</td><td>77.59</td><td>86.14</td><td>77.25</td><td>79.00</td><td>ja</td><td>100.00</td><td>93.86</td><td>72.43</td><td>60.11</td><td>87.23</td><td>8.68</td><td>0.00</td><td>ja</td><td>100.00</td><td>89.50</td><td>49.03</td><td>64.27</td><td>70.69</td></tr>
+<tr><td>Wombat</td><td>nein</td><td>0.00</td><td>71.06</td><td>100.00</td><td>70.57</td><td>78.80</td><td>nein</td><td>30.00</td><td>63.68</td><td>70.42</td><td>64.65</td><td>53.28</td><td>68.26</td><td>nein</td><td>50.13</td><td>33.84</td><td>31.81</td><td>71.51</td><td>89.50</td><td>ja</td><td>81.41</td><td>100.00</td><td>5.54</td><td>31.77</td><td>76.92</td><td>97.60</td><td>19.68</td><td>ja</td><td>87.66</td><td>75.96</td><td>51.51</td><td>71.92</td><td>48.48</td></tr>
+<tr><td>Gildenhofnarr</td><td>ja</td><td>90.71</td><td>89.50</td><td>99.08</td><td>73.13</td><td>85.49</td><td>ja</td><td>99.71</td><td>99.50</td><td>96.84</td><td>96.28</td><td>76.45</td><td>77.63</td><td>ja</td><td>91.96</td><td>68.51</td><td>95.89</td><td>86.60</td><td>87.66</td><td>ja</td><td>90.27</td><td>99.67</td><td>84.19</td><td>31.35</td><td>0.00</td><td>96.05</td><td>95.89</td><td>ja</td><td>86.93</td><td>86.75</td><td>53.95</td><td>73.36</td><td>85.60</td></tr>
+<tr><td>FΩD BastosBanditos</td><td>nein</td><td>0.00</td><td>71.92</td><td>98.17</td><td>79.39</td><td>78.80</td><td>ja</td><td>45.20</td><td>71.06</td><td>74.36</td><td>95.11</td><td>52.04</td><td>60.26</td><td>ja</td><td>64.35</td><td>71.33</td><td>47.32</td><td>73.34</td><td>89.50</td><td>ja</td><td>100.00</td><td>77.03</td><td>20.12</td><td>63.59</td><td>81.12</td><td>96.40</td><td>0.00</td><td>nein</td><td>96.39</td><td>86.75</td><td>22.40</td><td>75.38</td><td>29.84</td></tr>
+<tr><td>Ashley Kamalas</td><td>nein</td><td>0.00</td><td>61.96</td><td>67.68</td><td>84.30</td><td>72.05</td><td>nein</td><td>2.95</td><td>53.97</td><td>72.07</td><td>13.67</td><td>6.11</td><td>45.25</td><td>nein</td><td>74.50</td><td>61.84</td><td>34.66</td><td>79.00</td><td>49.16</td><td>ja</td><td>69.43</td><td>96.84</td><td>24.19</td><td>44.68</td><td>93.77</td><td>96.40</td><td>46.84</td><td>nein</td><td>70.23</td><td>83.87</td><td>25.68</td><td>75.09</td><td>21.90</td></tr>
+<tr><td>FΩD Mc Gaiver</td><td>ja</td><td>99.19</td><td>88.58</td><td>99.71</td><td>78.67</td><td>87.93</td><td>ja</td><td>76.25</td><td>89.50</td><td>79.23</td><td>96.85</td><td>54.45</td><td>79.82</td><td>ja</td><td>96.84</td><td>79.47</td><td>72.95</td><td>80.49</td><td>77.16</td><td>ja</td><td>71.31</td><td>76.14</td><td>83.77</td><td>62.97</td><td>89.73</td><td>70.22</td><td>74.66</td><td>ja</td><td>75.46</td><td>86.46</td><td>73.27</td><td>86.88</td><td>75.33</td></tr>
+<tr><td>Caspar</td><td>nein</td><td>0.00</td><td>70.56</td><td>73.44</td><td>89.14</td><td>78.47</td><td>ja</td><td>55.74</td><td>70.77</td><td>64.51</td><td>93.56</td><td>50.31</td><td>80.29</td><td>nein</td><td>78.47</td><td>68.17</td><td>5.98</td><td>70.66</td><td>89.50</td><td>ja</td><td>100.00</td><td>100.00</td><td>5.09</td><td>44.56</td><td>70.28</td><td>96.40</td><td>91.05</td><td>nein</td><td>100.00</td><td>95.23</td><td>8.97</td><td>72.21</td><td>72.79</td></tr>
+<tr><td>Vin</td><td>nein</td><td>0.00</td><td>61.42</td><td>75.11</td><td>64.42</td><td>66.63</td><td>ja</td><td>41.78</td><td>47.62</td><td>69.83</td><td>52.38</td><td>48.47</td><td>53.34</td><td>nein</td><td>22.03</td><td>5.09</td><td>3.99</td><td>25.22</td><td>63.23</td><td>ja</td><td>90.71</td><td>79.54</td><td>3.45</td><td>2.32</td><td>67.72</td><td>82.75</td><td>74.71</td><td>nein</td><td>70.83</td><td>58.99</td><td>26.80</td><td>58.63</td><td>53.45</td></tr>
+
 	</tbody>
 </table></div>
 
