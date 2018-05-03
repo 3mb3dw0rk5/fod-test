@@ -1,454 +1,1404 @@
-
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<title></title>
+    <meta charset="utf-8">
+    <title></title>
 
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 
-	<!-- Tablesorter: required for bootstrap -->
-	<link rel="stylesheet" href="css/theme.bootstrap_4.css">
-	<script src="js/jquery.tablesorter.js"></script>
-	<script src="js/jquery.tablesorter.widgets.js"></script>
+    <!-- Tablesorter: required for bootstrap -->
+    <link rel="stylesheet" href="css/theme.bootstrap_4.css">
+    <script src="js/jquery.tablesorter.js"></script>
+    <script src="js/jquery.tablesorter.widgets.js"></script>
 
-	<!-- Tablesorter: optional -->
-	<link rel="stylesheet" href="css/jquery.tablesorter.pager.css">
-	<style>
-	.tablesorter-pager .btn-group-sm .btn {
-		font-size: 1.2em;
-	}
-	</style>
-	<script src="js/jquery.tablesorter.pager.js"></script>
+    <!-- Tablesorter: optional -->
+    <link rel="stylesheet" href="css/jquery.tablesorter.pager.css">
+    <style>
+    .tablesorter-pager .btn-group-sm .btn {
+        font-size: 1.2em;
+    }
+    </style>
+    <script src="js/jquery.tablesorter.pager.js"></script>
 
-	<script id="js">$(function() {
+    <script id="js">$(function() {
 
-	$("table").tablesorter({
-		theme : "bootstrap",
+    $("table").tablesorter({
+        theme : "bootstrap",
 
-		widthFixed: true,
+        widthFixed: true,
 
-		// widget code contained in the jquery.tablesorter.widgets.js file
-		// use the zebra stripe widget if you plan on hiding any rows (filter widget)
-		// the uitheme widget is NOT REQUIRED!
-		widgets : [ "filter", "columns", "zebra" ],
+        // widget code contained in the jquery.tablesorter.widgets.js file
+        // use the zebra stripe widget if you plan on hiding any rows (filter widget)
+        // the uitheme widget is NOT REQUIRED!
+        widgets : [ "filter", "columns", "zebra" ],
 
-		widgetOptions : {
-			// using the default zebra striping class name, so it actually isn't included in the theme variable above
-			// this is ONLY needed for bootstrap theming if you are using the filter widget, because rows are hidden
-			zebra : ["even", "odd"],
+        widgetOptions : {
+            // using the default zebra striping class name, so it actually isn't included in the theme variable above
+            // this is ONLY needed for bootstrap theming if you are using the filter widget, because rows are hidden
+            zebra : ["even", "odd"],
 
-			// class names added to columns when sorted
-			columns: [ "primary", "secondary", "tertiary" ],
+            // class names added to columns when sorted
+            columns: [ "primary", "secondary", "tertiary" ],
 
-			// reset filters button
-			filter_reset : ".reset",
+            // reset filters button
+            filter_reset : ".reset",
 
-			// extra css class name (string or array) added to the filter element (input or select)
-			filter_cssFilter: [
-				'form-control',
-				'form-control',
-				'form-control',
-				'form-control',
-				'form-control',
-				'form-control',
-				'form-control',
-				'form-control',
+            // extra css class name (string or array) added to the filter element (input or select)
+            filter_cssFilter: [
                 'form-control',
-				'form-control',
-				'form-control',
-				'form-control',
-				'form-control',
-				'form-control',
-				'form-control',
                 'form-control',
-				'form-control',
-				'form-control',
-				'form-control',
-				'form-control',
-				'form-control',
-				'form-control',
                 'form-control',
-				'form-control',
-				'form-control',
-				'form-control',
-				'form-control',
-				'form-control',
-				'form-control',
                 'form-control',
-				'form-control',
-				'form-control',
-				'form-control',
-				'form-control'
-			]
+                'form-control',
+                'form-control',
+                'form-control',
+                'form-control',
+                'form-control',
+                'form-control',
+                'form-control',
+                'form-control',
+                'form-control',
+                'form-control',
+                'form-control',
+                'form-control',
+                'form-control',
+                'form-control',
+                'form-control',
+                'form-control',
+                'form-control',
+                'form-control',
+                'form-control',
+                'form-control',
+                'form-control',
+                'form-control',
+                'form-control',
+                'form-control',
+                'form-control',
+                'form-control',
+                'form-control',
+                'form-control',
+                'form-control',
+                'form-control'
+            ]
 
-		}
-	});
+        }
+    });
 
 });</script>
 
-	<script>
-	$(function() {
+    <script>
+    $(function() {
 
-		// filter button demo code
-		$('button.filter').click(function() {
-			var col = $(this).data('column'),
-				txt = $(this).data('filter');
-			$('table').find('.tablesorter-filter').val('').eq(col).val(txt);
-			$('table').trigger('search', false);
-			return false;
-		});
-	});
-	</script>
+        // filter button demo code
+        $('button.filter').click(function() {
+            var col = $(this).data('column'),
+                txt = $(this).data('filter');
+            $('table').find('.tablesorter-filter').val('').eq(col).val(txt);
+            $('table').trigger('search', false);
+            return false;
+        });
+    });
+    </script>
 
 </head>
 <body>
 
-	<span class="badge badge-info">Aktualisiert am: 02.05.2018 11:41 Uhr</span>
-	<br/>
-	<div class="bootstrap_buttons">
-		<button type="button" class="reset btn btn-primary" data-column="0" data-filter="">Reset Filter</button>
-	</div>
-	<br/>
-
-	<ul  class="nav nav-tabs" id="myTab" role="tablist">
-		<li class="nav-item"><a class="nav-link active" href="#rjt" data-toggle="tab">RJT</a></li>
-		<li class="nav-item"><a class="nav-link" href="#nsis" data-toggle="tab">Schwestern der Nacht</a></li>
-		<li class="nav-item"><a class="nav-link" href="#impt" data-toggle="tab">Imperial Trooper</a></li>
-		<li class="nav-item"><a class="nav-link" href="#chexmix" data-toggle="tab">Chexmix</a></li>
-		<li class="nav-item"><a class="nav-link" href="#palp" data-toggle="tab">Palpatine</a></li>
-	</ul>
-
-	<div class="tab-content" id="myTabContent">
-
-<div class="tab-pane active" id="rjt">
-<table class="table table-bordered table-striped">
-	<thead class="thead-dark">
-		<tr>
-			<th>Member</th>
-			<th>RJT ready</th>
-			<th>Rey (Jedi Training)</th>
-			<th>BB-8</th>
-			<th>R2-D2</th>
-			<th>Resistance Trooper</th>
-			<th>Rey (Scavenger)</th>
-        </tr>
-	</thead>
-	<tbody>
-<tr><td>FΩD DarthTyranus</td><td>ja</td><td>81.41</td><td>87.66</td><td>89.50</td><td>90.32</td><td>80.79</td></tr>
-<tr><td>Ringlo</td><td>nein</td><td>0.00</td><td>85.83</td><td>82.43</td><td>95.05</td><td>80.79</td></tr>
-<tr><td>Exor Lupos</td><td>ja</td><td>80.35</td><td>77.16</td><td>86.46</td><td>97.11</td><td>84.77</td></tr>
-<tr><td>USeeMeNoMore</td><td>nein</td><td>0.00</td><td>65.18</td><td>100.00</td><td>85.57</td><td>78.47</td></tr>
-<tr><td>DK Yami</td><td>nein</td><td>0.00</td><td>53.11</td><td>97.67</td><td>22.76</td><td>70.62</td></tr>
-<tr><td>HansVader</td><td>ja</td><td>90.45</td><td>86.75</td><td>99.08</td><td>93.08</td><td>78.80</td></tr>
-<tr><td>FΩD TheOnlyGH</td><td>ja</td><td>90.71</td><td>96.39</td><td>99.08</td><td>91.11</td><td>78.80</td></tr>
-<tr><td>Watchman Bombassa</td><td>ja</td><td>89.08</td><td>97.25</td><td>98.17</td><td>95.05</td><td>78.80</td></tr>
-<tr><td>HanDrangSolo</td><td>ja</td><td>90.71</td><td>83.46</td><td>99.42</td><td>92.29</td><td>90.55</td></tr>
-<tr><td>ॐgotshiॐ</td><td>nein</td><td>0.00</td><td>89.50</td><td>89.50</td><td>83.46</td><td>77.92</td></tr>
-<tr><td>troubIem4ker</td><td>ja</td><td>78.98</td><td>86.75</td><td>89.21</td><td>88.74</td><td>90.88</td></tr>
-<tr><td>Bruenor</td><td>ja</td><td>81.41</td><td>88.29</td><td>100.00</td><td>95.05</td><td>80.46</td></tr>
-<tr><td>Bexis</td><td>nein</td><td>0.00</td><td>48.81</td><td>100.00</td><td>30.26</td><td>67.97</td></tr>
-<tr><td>MaceॐNow</td><td>nein</td><td>0.00</td><td>77.16</td><td>100.00</td><td>64.69</td><td>81.79</td></tr>
-<tr><td>BladeXXL</td><td>nein</td><td>0.00</td><td>75.33</td><td>61.88</td><td>92.29</td><td>81.45</td></tr>
-<tr><td>Rustikal</td><td>nein</td><td>0.00</td><td>63.53</td><td>89.50</td><td>56.64</td><td>69.19</td></tr>
-<tr><td>FΩD Swiftmind</td><td>ja</td><td>81.41</td><td>73.60</td><td>88.58</td><td>93.87</td><td>80.79</td></tr>
-<tr><td>Faceless</td><td>ja</td><td>90.71</td><td>89.50</td><td>100.00</td><td>98.75</td><td>83.44</td></tr>
-<tr><td>el tino</td><td>ja</td><td>79.79</td><td>84.10</td><td>87.66</td><td>98.75</td><td>79.47</td></tr>
-<tr><td>SB Tubifex</td><td>ja</td><td>78.98</td><td>87.38</td><td>98.17</td><td>90.82</td><td>79.80</td></tr>
-<tr><td>Mettbrötchen</td><td>nein</td><td>0.00</td><td>72.79</td><td>97.88</td><td>93.98</td><td>77.81</td></tr>
-<tr><td>Lakkes93</td><td>ja</td><td>100.00</td><td>84.73</td><td>100.00</td><td>94.26</td><td>79.80</td></tr>
-<tr><td>DK BenWalker</td><td>ja</td><td>89.08</td><td>76.25</td><td>88.58</td><td>87.40</td><td>79.80</td></tr>
-<tr><td>FΩD Freddy Fuchur</td><td>ja</td><td>79.79</td><td>84.73</td><td>87.66</td><td>90.32</td><td>79.47</td></tr>
-<tr><td>Zossenfighter CS</td><td>nein</td><td>0.00</td><td>81.56</td><td>97.25</td><td>27.82</td><td>78.80</td></tr>
-<tr><td>DeadlyFX aka ACID Heok</td><td>ja</td><td>79.79</td><td>76.25</td><td>100.00</td><td>95.05</td><td>80.79</td></tr>
-<tr><td>Torham</td><td>ja</td><td>90.71</td><td>87.66</td><td>100.00</td><td>91.50</td><td>78.80</td></tr>
-<tr><td>skugde</td><td>nein</td><td>0.00</td><td>71.06</td><td>99.08</td><td>89.14</td><td>78.80</td></tr>
-<tr><td>FΩD Larykk</td><td>ja</td><td>80.60</td><td>86.75</td><td>89.50</td><td>97.49</td><td>78.80</td></tr>
-<tr><td>Bizkit</td><td>nein</td><td>0.00</td><td>69.85</td><td>87.66</td><td>7.91</td><td>63.61</td></tr>
-<tr><td>Snow xy</td><td>ja</td><td>81.41</td><td>85.83</td><td>97.25</td><td>96.24</td><td>80.79</td></tr>
-<tr><td>SF Kylvader</td><td>ja</td><td>81.41</td><td>80.50</td><td>99.08</td><td>89.53</td><td>70.99</td></tr>
-<tr><td>Lenox</td><td>nein</td><td>0.00</td><td>72.74</td><td>79.73</td><td>61.41</td><td>77.57</td></tr>
-<tr><td>Alhina</td><td>nein</td><td>0.00</td><td>72.79</td><td>99.71</td><td>89.14</td><td>76.70</td></tr>
-<tr><td>Kyle</td><td>ja</td><td>96.62</td><td>83.00</td><td>87.66</td><td>95.05</td><td>78.47</td></tr>
-<tr><td>DK m0x1337</td><td>nein</td><td>0.00</td><td>70.94</td><td>89.50</td><td>95.98</td><td>73.34</td></tr>
-<tr><td>KA1NSK1ND</td><td>nein</td><td>0.00</td><td>41.40</td><td>100.00</td><td>47.91</td><td>63.15</td></tr>
-<tr><td>Æco</td><td>nein</td><td>0.00</td><td>70.29</td><td>84.73</td><td>93.87</td><td>78.80</td></tr>
-<tr><td>Lanjesus</td><td>ja</td><td>89.90</td><td>86.75</td><td>87.66</td><td>91.50</td><td>78.80</td></tr>
-<tr><td>FΩD Hashtag</td><td>nein</td><td>0.00</td><td>76.25</td><td>98.81</td><td>88.74</td><td>78.80</td></tr>
-<tr><td>FΩD Dorinur</td><td>ja</td><td>81.41</td><td>73.60</td><td>100.00</td><td>91.50</td><td>79.80</td></tr>
-<tr><td>Wombat</td><td>nein</td><td>0.00</td><td>71.06</td><td>100.00</td><td>88.08</td><td>78.80</td></tr>
-<tr><td>FΩD BastosBanditos</td><td>nein</td><td>0.00</td><td>83.29</td><td>99.08</td><td>89.14</td><td>78.80</td></tr>
-<tr><td>FΩD Mc Gaiver</td><td>ja</td><td>99.19</td><td>88.58</td><td>100.00</td><td>97.10</td><td>87.93</td></tr>
-<tr><td>Caspar</td><td>nein</td><td>0.00</td><td>71.43</td><td>73.44</td><td>90.32</td><td>78.80</td></tr>
-<tr><td>Vin</td><td>nein</td><td>0.00</td><td>62.67</td><td>75.11</td><td>64.86</td><td>66.63</td></tr>
-	</tbody>
-</table>
+<span class="badge badge-info">Aktualisiert am: 03.05.2018 15:15 Uhr</span>
+<br/>
+<div class="bootstrap_buttons">
+    <button type="button" class="reset btn btn-primary" data-column="0" data-filter="">Reset Filter</button>
 </div>
+<br/>
 
-<div class="tab-pane" id="nsis">
-<table class="table table-bordered table-striped">
-<thead class="thead-dark">
-	<tr>
-		<th>Member</th>
-		<th>NSis ready</th>
-		<th>Mother Talzin</th>
-		<th>Asajj Ventress</th>
-		<th>Old Daka</th>
-		<th>Nightsister Acolyte</th>
-		<th>Nightsister Zombie</th>
-		<th>Talia</th>
-	</tr>
-</thead>
-<tbody>
-<tr><td>FΩD DarthTyranus</td><td>nein</td><td>61.58</td><td>93.30</td><td>74.20</td><td>77.25</td><td>57.05</td><td>73.97</td></tr>
-<tr><td>Ringlo</td><td>nein</td><td>2.95</td><td>55.71</td><td>23.36</td><td>9.58</td><td>5.98</td><td>67.09</td></tr>
-<tr><td>Exor Lupos</td><td>nein</td><td>51.06</td><td>83.10</td><td>78.36</td><td>85.92</td><td>53.82</td><td>69.94</td></tr>
-<tr><td>USeeMeNoMore</td><td>nein</td><td>39.55</td><td>66.68</td><td>66.86</td><td>17.61</td><td>27.45</td><td>64.80</td></tr>
-<tr><td>DK Yami</td><td>nein</td><td>18.06</td><td>69.21</td><td>74.26</td><td>30.07</td><td>24.41</td><td>82.88</td></tr>
-<tr><td>HansVader</td><td>nein</td><td>43.95</td><td>61.71</td><td>77.20</td><td>62.34</td><td>38.06</td><td>37.60</td></tr>
-<tr><td>FΩD TheOnlyGH</td><td>nein</td><td>71.79</td><td>73.65</td><td>77.65</td><td>96.74</td><td>63.87</td><td>75.81</td></tr>
-<tr><td>Watchman Bombassa</td><td>nein</td><td>42.65</td><td>52.66</td><td>64.06</td><td>65.95</td><td>40.80</td><td>58.06</td></tr>
-<tr><td>HanDrangSolo</td><td>nein</td><td>39.59</td><td>57.45</td><td>57.60</td><td>14.52</td><td>45.85</td><td>56.83</td></tr>
-<tr><td>ॐgotshiॐ</td><td>nein</td><td>45.20</td><td>67.97</td><td>78.41</td><td>63.28</td><td>47.40</td><td>51.75</td></tr>
-<tr><td>troubIem4ker</td><td>nein</td><td>39.68</td><td>57.37</td><td>62.36</td><td>57.95</td><td>40.84</td><td>45.99</td></tr>
-<tr><td>Bruenor</td><td>nein</td><td>49.88</td><td>85.02</td><td>68.55</td><td>95.11</td><td>42.66</td><td>81.17</td></tr>
-<tr><td>Bexis</td><td>nein</td><td>16.64</td><td>28.39</td><td>45.11</td><td>28.82</td><td>16.52</td><td>30.31</td></tr>
-<tr><td>MaceॐNow</td><td>nein</td><td>47.98</td><td>69.51</td><td>76.14</td><td>70.40</td><td>55.37</td><td>87.60</td></tr>
-<tr><td>BladeXXL</td><td>nein</td><td>45.03</td><td>85.83</td><td>82.78</td><td>81.24</td><td>51.79</td><td>74.39</td></tr>
-<tr><td>Rustikal</td><td>nein</td><td>63.56</td><td>64.94</td><td>70.33</td><td>74.54</td><td>57.00</td><td>62.84</td></tr>
-<tr><td>FΩD Swiftmind</td><td>nein</td><td>13.63</td><td>68.51</td><td>58.87</td><td>33.34</td><td>9.35</td><td>58.45</td></tr>
-<tr><td>Faceless</td><td>nein</td><td>43.09</td><td>61.59</td><td>71.43</td><td>76.14</td><td>50.13</td><td>72.07</td></tr>
-<tr><td>el tino</td><td>nein</td><td>42.55</td><td>69.19</td><td>72.02</td><td>71.45</td><td>39.44</td><td>66.48</td></tr>
-<tr><td>SB Tubifex</td><td>nein</td><td>81.84</td><td>97.88</td><td>82.57</td><td>96.74</td><td>61.78</td><td>80.84</td></tr>
-<tr><td>Mettbrötchen</td><td>nein</td><td>41.49</td><td>66.08</td><td>70.57</td><td>74.62</td><td>42.75</td><td>80.81</td></tr>
-<tr><td>Lakkes93</td><td>ja</td><td>86.46</td><td>75.96</td><td>70.03</td><td>96.28</td><td>93.95</td><td>59.49</td></tr>
-<tr><td>DK BenWalker</td><td>nein</td><td>47.03</td><td>63.81</td><td>63.34</td><td>51.41</td><td>52.04</td><td>73.74</td></tr>
-<tr><td>FΩD Freddy Fuchur</td><td>nein</td><td>54.27</td><td>63.05</td><td>61.32</td><td>75.80</td><td>66.35</td><td>34.16</td></tr>
-<tr><td>Zossenfighter CS</td><td>nein</td><td>29.52</td><td>69.51</td><td>63.15</td><td>2.66</td><td>34.88</td><td>72.71</td></tr>
-<tr><td>DeadlyFX aka ACID Heok</td><td>nein</td><td>57.28</td><td>71.82</td><td>76.64</td><td>83.47</td><td>55.55</td><td>84.01</td></tr>
-<tr><td>Torham</td><td>nein</td><td>18.14</td><td>45.73</td><td>50.81</td><td>16.18</td><td>20.94</td><td>34.67</td></tr>
-<tr><td>skugde</td><td>nein</td><td>37.60</td><td>60.08</td><td>64.64</td><td>28.75</td><td>50.74</td><td>77.98</td></tr>
-<tr><td>FΩD Larykk</td><td>nein</td><td>12.18</td><td>34.20</td><td>27.69</td><td>0.00</td><td>21.83</td><td>22.25</td></tr>
-<tr><td>Bizkit</td><td>nein</td><td>59.26</td><td>54.70</td><td>64.92</td><td>40.72</td><td>33.37</td><td>47.30</td></tr>
-<tr><td>Snow xy</td><td>nein</td><td>44.04</td><td>68.60</td><td>68.81</td><td>13.65</td><td>53.28</td><td>82.86</td></tr>
-<tr><td>SF Kylvader</td><td>nein</td><td>41.92</td><td>59.41</td><td>66.15</td><td>56.27</td><td>51.11</td><td>60.97</td></tr>
-<tr><td>Lenox</td><td>nein</td><td>30.32</td><td>66.86</td><td>48.22</td><td>15.78</td><td>31.53</td><td>28.56</td></tr>
-<tr><td>Alhina</td><td>nein</td><td>85.95</td><td>87.66</td><td>79.33</td><td>92.78</td><td>63.87</td><td>88.99</td></tr>
-<tr><td>Kyle</td><td>nein</td><td>22.96</td><td>60.85</td><td>56.92</td><td>48.59</td><td>28.29</td><td>72.63</td></tr>
-<tr><td>DK m0x1337</td><td>nein</td><td>25.84</td><td>51.12</td><td>54.24</td><td>26.19</td><td>31.87</td><td>69.20</td></tr>
-<tr><td>KA1NSK1ND</td><td>nein</td><td>41.02</td><td>65.25</td><td>67.34</td><td>52.38</td><td>42.66</td><td>77.47</td></tr>
-<tr><td>Æco</td><td>nein</td><td>71.33</td><td>72.74</td><td>79.74</td><td>93.95</td><td>59.69</td><td>60.57</td></tr>
-<tr><td>Lanjesus</td><td>nein</td><td>42.33</td><td>70.14</td><td>66.49</td><td>52.55</td><td>47.32</td><td>24.98</td></tr>
-<tr><td>FΩD Hashtag</td><td>nein</td><td>66.24</td><td>49.54</td><td>58.41</td><td>0.00</td><td>41.60</td><td>43.11</td></tr>
-<tr><td>FΩD Dorinur</td><td>nein</td><td>47.42</td><td>99.08</td><td>75.97</td><td>94.73</td><td>55.49</td><td>100.00</td></tr>
-<tr><td>Wombat</td><td>nein</td><td>30.00</td><td>63.68</td><td>70.42</td><td>64.65</td><td>53.28</td><td>68.26</td></tr>
-<tr><td>FΩD BastosBanditos</td><td>nein</td><td>47.42</td><td>71.92</td><td>74.36</td><td>97.52</td><td>53.28</td><td>60.26</td></tr>
-<tr><td>FΩD Mc Gaiver</td><td>ja</td><td>76.25</td><td>100.00</td><td>85.82</td><td>96.85</td><td>54.45</td><td>79.82</td></tr>
-<tr><td>Caspar</td><td>nein</td><td>55.74</td><td>99.08</td><td>71.04</td><td>95.89</td><td>50.31</td><td>80.29</td></tr>
-<tr><td>Vin</td><td>nein</td><td>41.78</td><td>47.62</td><td>69.83</td><td>52.38</td><td>48.47</td><td>53.34</td></tr>
-</tbody>
-</table>
-</div>
+    <ul  class="nav nav-tabs" role="tablist">
+        <li class="nav-item"><a class="nav-link active" href="#overview" data-toggle="tab">Übersicht</a></li>
+    <li class="nav-item"><a class="nav-link" href="#RJT" data-toggle="tab">RJT</a></li>
+    <li class="nav-item"><a class="nav-link" href="#SabineShredder" data-toggle="tab">SabineShredder</a></li>
+    <li class="nav-item"><a class="nav-link" href="#Nightsisters" data-toggle="tab">Nightsisters</a></li>
+    <li class="nav-item"><a class="nav-link" href="#ImperialTrooper" data-toggle="tab">ImperialTrooper</a></li>
+    <li class="nav-item"><a class="nav-link" href="#ChexMix" data-toggle="tab">ChexMix</a></li>
+    <li class="nav-item"><a class="nav-link" href="#Zalpatine" data-toggle="tab">Zalpatine</a></li>
+    <li class="nav-item"><a class="nav-link" href="#KruFO" data-toggle="tab">KruFO</a></li>
+        </ul>
 
-<div class="tab-pane" id="impt">
-<table class="table table-bordered table-striped">
-	<thead class="thead-dark">
-		<tr>
-			<th>Member</th>
-			<th>ImpT ready</th>
-			<th>General Veers</th>
-			<th>Colonel Starck</th>
-			<th>Shoretrooper</th>
-			<th>Snowtrooper</th>
-			<th>Grand Admiral Thrawn</th>
-        </tr>
-	</thead>
-	<tbody>
-<tr><td>FΩD DarthTyranus</td><td>ja</td><td>92.23</td><td>81.79</td><td>81.77</td><td>90.44</td><td>88.29</td></tr>
-<tr><td>Ringlo</td><td>nein</td><td>66.16</td><td>53.26</td><td>5.98</td><td>68.62</td><td>77.16</td></tr>
-<tr><td>Exor Lupos</td><td>nein</td><td>92.86</td><td>61.52</td><td>44.79</td><td>78.01</td><td>77.16</td></tr>
-<tr><td>USeeMeNoMore</td><td>ja</td><td>53.23</td><td>57.76</td><td>76.86</td><td>60.52</td><td>88.58</td></tr>
-<tr><td>DK Yami</td><td>nein</td><td>61.62</td><td>43.06</td><td>87.82</td><td>66.63</td><td>76.68</td></tr>
-<tr><td>HansVader</td><td>ja</td><td>72.15</td><td>75.48</td><td>84.71</td><td>89.27</td><td>97.25</td></tr>
-<tr><td>FΩD TheOnlyGH</td><td>nein</td><td>41.29</td><td>27.37</td><td>49.53</td><td>62.47</td><td>88.00</td></tr>
-<tr><td>Watchman Bombassa</td><td>nein</td><td>72.81</td><td>68.75</td><td>74.37</td><td>67.73</td><td>89.50</td></tr>
-<tr><td>HanDrangSolo</td><td>nein</td><td>76.02</td><td>60.41</td><td>5.98</td><td>67.81</td><td>65.80</td></tr>
-<tr><td>ॐgotshiॐ</td><td>nein</td><td>79.80</td><td>82.78</td><td>28.59</td><td>74.58</td><td>77.16</td></tr>
-<tr><td>troubIem4ker</td><td>nein</td><td>88.32</td><td>64.58</td><td>86.14</td><td>84.03</td><td>88.58</td></tr>
-<tr><td>Bruenor</td><td>ja</td><td>92.29</td><td>81.45</td><td>89.27</td><td>91.61</td><td>79.00</td></tr>
-<tr><td>Bexis</td><td>nein</td><td>36.33</td><td>36.57</td><td>45.39</td><td>66.23</td><td>80.00</td></tr>
-<tr><td>MaceॐNow</td><td>nein</td><td>65.24</td><td>65.86</td><td>33.07</td><td>70.53</td><td>78.08</td></tr>
-<tr><td>BladeXXL</td><td>ja</td><td>84.77</td><td>84.43</td><td>100.00</td><td>87.18</td><td>89.50</td></tr>
-<tr><td>Rustikal</td><td>nein</td><td>62.71</td><td>69.30</td><td>0.00</td><td>69.61</td><td>48.26</td></tr>
-<tr><td>FΩD Swiftmind</td><td>ja</td><td>49.81</td><td>55.82</td><td>56.56</td><td>64.15</td><td>89.50</td></tr>
-<tr><td>Faceless</td><td>nein</td><td>85.55</td><td>70.62</td><td>67.64</td><td>76.86</td><td>89.50</td></tr>
-<tr><td>el tino</td><td>ja</td><td>63.26</td><td>60.98</td><td>75.52</td><td>71.67</td><td>89.50</td></tr>
-<tr><td>SB Tubifex</td><td>ja</td><td>90.64</td><td>74.59</td><td>86.14</td><td>84.72</td><td>76.25</td></tr>
-<tr><td>Mettbrötchen</td><td>ja</td><td>96.84</td><td>80.13</td><td>90.44</td><td>91.22</td><td>89.21</td></tr>
-<tr><td>Lakkes93</td><td>ja</td><td>65.23</td><td>63.09</td><td>84.05</td><td>67.41</td><td>88.58</td></tr>
-<tr><td>DK BenWalker</td><td>ja</td><td>75.92</td><td>74.36</td><td>86.14</td><td>79.14</td><td>89.50</td></tr>
-<tr><td>FΩD Freddy Fuchur</td><td>ja</td><td>53.14</td><td>52.72</td><td>87.18</td><td>50.65</td><td>89.50</td></tr>
-<tr><td>Zossenfighter CS</td><td>ja</td><td>43.22</td><td>39.03</td><td>89.27</td><td>65.57</td><td>86.75</td></tr>
-<tr><td>DeadlyFX aka ACID Heok</td><td>ja</td><td>83.77</td><td>83.77</td><td>96.28</td><td>90.30</td><td>97.25</td></tr>
-<tr><td>Torham</td><td>nein</td><td>61.18</td><td>53.14</td><td>50.06</td><td>62.97</td><td>87.66</td></tr>
-<tr><td>skugde</td><td>nein</td><td>52.27</td><td>63.17</td><td>54.97</td><td>64.19</td><td>71.22</td></tr>
-<tr><td>FΩD Larykk</td><td>nein</td><td>40.16</td><td>23.28</td><td>33.53</td><td>54.45</td><td>66.62</td></tr>
-<tr><td>Bizkit</td><td>nein</td><td>67.57</td><td>75.25</td><td>92.78</td><td>56.22</td><td>89.50</td></tr>
-<tr><td>Snow xy</td><td>nein</td><td>71.33</td><td>43.13</td><td>52.49</td><td>69.60</td><td>88.58</td></tr>
-<tr><td>SF Kylvader</td><td>ja</td><td>88.77</td><td>75.81</td><td>87.18</td><td>88.23</td><td>88.58</td></tr>
-<tr><td>Lenox</td><td>nein</td><td>51.47</td><td>68.65</td><td>14.52</td><td>74.75</td><td>77.79</td></tr>
-<tr><td>Alhina</td><td>nein</td><td>19.83</td><td>60.11</td><td>92.78</td><td>67.28</td><td>80.92</td></tr>
-<tr><td>Kyle</td><td>nein</td><td>91.87</td><td>74.36</td><td>74.37</td><td>82.88</td><td>89.21</td></tr>
-<tr><td>DK m0x1337</td><td>nein</td><td>36.36</td><td>40.46</td><td>49.43</td><td>63.94</td><td>28.13</td></tr>
-<tr><td>KA1NSK1ND</td><td>nein</td><td>41.70</td><td>29.18</td><td>0.00</td><td>62.24</td><td>56.92</td></tr>
-<tr><td>Æco</td><td>ja</td><td>82.78</td><td>79.80</td><td>90.44</td><td>92.78</td><td>86.46</td></tr>
-<tr><td>Lanjesus</td><td>ja</td><td>72.09</td><td>66.74</td><td>81.10</td><td>73.34</td><td>86.46</td></tr>
-<tr><td>FΩD Hashtag</td><td>ja</td><td>96.84</td><td>71.00</td><td>96.28</td><td>87.64</td><td>97.25</td></tr>
-<tr><td>FΩD Dorinur</td><td>ja</td><td>92.86</td><td>82.45</td><td>89.27</td><td>77.25</td><td>79.00</td></tr>
-<tr><td>Wombat</td><td>nein</td><td>50.13</td><td>33.84</td><td>51.51</td><td>71.51</td><td>89.50</td></tr>
-<tr><td>FΩD BastosBanditos</td><td>nein</td><td>74.36</td><td>71.33</td><td>49.42</td><td>73.34</td><td>89.50</td></tr>
-<tr><td>FΩD Mc Gaiver</td><td>ja</td><td>97.89</td><td>82.45</td><td>74.19</td><td>80.49</td><td>77.16</td></tr>
-<tr><td>Caspar</td><td>nein</td><td>78.47</td><td>73.31</td><td>8.97</td><td>70.66</td><td>89.50</td></tr>
-<tr><td>Vin</td><td>nein</td><td>32.83</td><td>13.35</td><td>5.98</td><td>56.24</td><td>74.36</td></tr>
-	</tbody>
-</table>
-</div>
-
-<div class="tab-pane" id="chexmix">
-<table class="table table-bordered table-striped">
-	<thead class="thead-dark">
-		<tr>
-			<th>Member</th>
-			<th>ChexMix ready</th>
-			<th>Commander Luke Skywalker</th>
-			<th>Han Solo</th>
-			<th>Death Trooper</th>
-			<th>Pao</th>
-			<th>Jedi Knight Anakin</th>
-			<th>CT-7567 "Rex"</th>
-			<th>Chirrut Îmwe</th>
-        </tr>
-	</thead>
-	<tbody>
-<tr><td>FΩD DarthTyranus</td><td>ja</td><td>71.31</td><td>94.85</td><td>81.79</td><td>64.91</td><td>86.12</td><td>49.59</td><td>66.59</td></tr>
-<tr><td>Ringlo</td><td>ja</td><td>89.08</td><td>98.95</td><td>50.55</td><td>23.36</td><td>66.84</td><td>72.30</td><td>77.35</td></tr>
-<tr><td>Exor Lupos</td><td>ja</td><td>98.93</td><td>97.56</td><td>40.15</td><td>58.03</td><td>64.69</td><td>87.56</td><td>92.52</td></tr>
-<tr><td>USeeMeNoMore</td><td>ja</td><td>99.75</td><td>97.89</td><td>37.37</td><td>15.51</td><td>81.18</td><td>96.40</td><td>77.96</td></tr>
-<tr><td>DK Yami</td><td>ja</td><td>69.25</td><td>96.99</td><td>74.03</td><td>18.91</td><td>44.39</td><td>95.75</td><td>90.05</td></tr>
-<tr><td>HansVader</td><td>ja</td><td>79.79</td><td>97.89</td><td>80.79</td><td>23.36</td><td>76.44</td><td>41.18</td><td>76.68</td></tr>
-<tr><td>FΩD TheOnlyGH</td><td>ja</td><td>89.90</td><td>98.28</td><td>55.19</td><td>23.36</td><td>73.30</td><td>87.74</td><td>78.33</td></tr>
-<tr><td>Watchman Bombassa</td><td>ja</td><td>99.75</td><td>96.84</td><td>74.05</td><td>23.36</td><td>0.00</td><td>84.32</td><td>96.52</td></tr>
-<tr><td>HanDrangSolo</td><td>ja</td><td>99.75</td><td>100.00</td><td>60.80</td><td>59.53</td><td>78.50</td><td>67.21</td><td>88.61</td></tr>
-<tr><td>ॐgotshiॐ</td><td>ja</td><td>90.71</td><td>100.00</td><td>20.15</td><td>58.56</td><td>86.22</td><td>96.40</td><td>76.72</td></tr>
-<tr><td>troubIem4ker</td><td>nein</td><td>81.41</td><td>93.20</td><td>80.79</td><td>45.45</td><td>44.50</td><td>96.40</td><td>34.32</td></tr>
-<tr><td>Bruenor</td><td>ja</td><td>81.41</td><td>100.00</td><td>78.80</td><td>72.76</td><td>67.54</td><td>91.88</td><td>73.99</td></tr>
-<tr><td>Bexis</td><td>nein</td><td>90.45</td><td>98.37</td><td>12.05</td><td>11.72</td><td>30.11</td><td>88.32</td><td>86.39</td></tr>
-<tr><td>MaceॐNow</td><td>ja</td><td>100.00</td><td>100.00</td><td>16.22</td><td>34.07</td><td>95.27</td><td>97.60</td><td>75.52</td></tr>
-<tr><td>BladeXXL</td><td>ja</td><td>78.98</td><td>96.84</td><td>87.93</td><td>31.97</td><td>76.04</td><td>96.03</td><td>77.35</td></tr>
-<tr><td>Rustikal</td><td>nein</td><td>89.02</td><td>36.61</td><td>6.52</td><td>7.74</td><td>52.09</td><td>88.67</td><td>80.73</td></tr>
-<tr><td>FΩD Swiftmind</td><td>nein</td><td>81.41</td><td>89.10</td><td>17.25</td><td>28.95</td><td>32.80</td><td>64.32</td><td>77.65</td></tr>
-<tr><td>Faceless</td><td>nein</td><td>81.16</td><td>99.67</td><td>63.47</td><td>31.60</td><td>91.88</td><td>87.99</td><td>48.88</td></tr>
-<tr><td>el tino</td><td>ja</td><td>81.41</td><td>93.86</td><td>67.35</td><td>57.49</td><td>71.36</td><td>73.29</td><td>49.02</td></tr>
-<tr><td>SB Tubifex</td><td>ja</td><td>89.90</td><td>96.84</td><td>81.45</td><td>56.13</td><td>91.51</td><td>98.80</td><td>85.93</td></tr>
-<tr><td>Mettbrötchen</td><td>ja</td><td>81.16</td><td>98.62</td><td>45.78</td><td>16.22</td><td>77.91</td><td>73.60</td><td>71.61</td></tr>
-<tr><td>Lakkes93</td><td>ja</td><td>100.00</td><td>99.67</td><td>75.81</td><td>46.81</td><td>91.88</td><td>96.40</td><td>96.52</td></tr>
-<tr><td>DK BenWalker</td><td>ja</td><td>99.19</td><td>98.95</td><td>71.82</td><td>62.40</td><td>90.76</td><td>93.01</td><td>75.86</td></tr>
-<tr><td>FΩD Freddy Fuchur</td><td>ja</td><td>81.41</td><td>96.51</td><td>58.98</td><td>42.75</td><td>90.76</td><td>96.40</td><td>66.26</td></tr>
-<tr><td>Zossenfighter CS</td><td>ja</td><td>97.57</td><td>96.84</td><td>17.54</td><td>23.36</td><td>89.63</td><td>90.76</td><td>96.52</td></tr>
-<tr><td>DeadlyFX aka ACID Heok</td><td>ja</td><td>100.00</td><td>96.84</td><td>84.77</td><td>64.19</td><td>95.27</td><td>96.40</td><td>96.52</td></tr>
-<tr><td>Torham</td><td>nein</td><td>81.41</td><td>97.89</td><td>56.67</td><td>18.27</td><td>72.64</td><td>96.03</td><td>29.71</td></tr>
-<tr><td>skugde</td><td>nein</td><td>99.19</td><td>98.95</td><td>3.39</td><td>2.26</td><td>91.88</td><td>26.57</td><td>93.24</td></tr>
-<tr><td>FΩD Larykk</td><td>nein</td><td>78.98</td><td>98.95</td><td>15.33</td><td>27.69</td><td>38.20</td><td>69.38</td><td>69.69</td></tr>
-<tr><td>Bizkit</td><td>ja</td><td>89.69</td><td>97.32</td><td>81.45</td><td>29.93</td><td>5.79</td><td>96.40</td><td>79.16</td></tr>
-<tr><td>Snow xy</td><td>nein</td><td>90.71</td><td>74.36</td><td>49.07</td><td>31.03</td><td>80.75</td><td>60.30</td><td>0.00</td></tr>
-<tr><td>SF Kylvader</td><td>ja</td><td>90.71</td><td>97.89</td><td>82.78</td><td>7.19</td><td>70.28</td><td>93.77</td><td>96.15</td></tr>
-<tr><td>Lenox</td><td>nein</td><td>90.71</td><td>99.67</td><td>3.39</td><td>2.26</td><td>0.00</td><td>100.00</td><td>52.52</td></tr>
-<tr><td>Alhina</td><td>ja</td><td>100.00</td><td>99.34</td><td>10.12</td><td>7.63</td><td>77.58</td><td>91.13</td><td>96.52</td></tr>
-<tr><td>Kyle</td><td>ja</td><td>89.90</td><td>98.95</td><td>80.79</td><td>4.19</td><td>43.19</td><td>89.63</td><td>93.24</td></tr>
-<tr><td>DK m0x1337</td><td>ja</td><td>81.16</td><td>97.23</td><td>12.57</td><td>11.55</td><td>80.71</td><td>78.71</td><td>80.07</td></tr>
-<tr><td>KA1NSK1ND</td><td>nein</td><td>100.00</td><td>100.00</td><td>8.87</td><td>8.66</td><td>0.00</td><td>34.43</td><td>39.07</td></tr>
-<tr><td>Æco</td><td>ja</td><td>79.79</td><td>98.95</td><td>80.79</td><td>61.80</td><td>79.92</td><td>72.36</td><td>94.33</td></tr>
-<tr><td>Lanjesus</td><td>ja</td><td>78.73</td><td>95.51</td><td>70.65</td><td>44.55</td><td>33.74</td><td>69.59</td><td>96.52</td></tr>
-<tr><td>FΩD Hashtag</td><td>ja</td><td>99.49</td><td>96.84</td><td>96.84</td><td>62.04</td><td>11.08</td><td>98.80</td><td>64.49</td></tr>
-<tr><td>FΩD Dorinur</td><td>ja</td><td>100.00</td><td>93.86</td><td>72.43</td><td>60.11</td><td>87.23</td><td>8.68</td><td>0.00</td></tr>
-<tr><td>Wombat</td><td>nein</td><td>81.41</td><td>100.00</td><td>34.42</td><td>31.77</td><td>76.92</td><td>97.60</td><td>19.68</td></tr>
-<tr><td>FΩD BastosBanditos</td><td>ja</td><td>100.00</td><td>77.03</td><td>22.59</td><td>63.59</td><td>81.12</td><td>96.40</td><td>0.00</td></tr>
-<tr><td>FΩD Mc Gaiver</td><td>ja</td><td>71.31</td><td>84.77</td><td>84.77</td><td>62.97</td><td>89.73</td><td>72.82</td><td>74.66</td></tr>
-<tr><td>Caspar</td><td>ja</td><td>100.00</td><td>100.00</td><td>33.15</td><td>44.56</td><td>70.28</td><td>96.40</td><td>91.05</td></tr>
-<tr><td>Vin</td><td>ja</td><td>90.71</td><td>79.54</td><td>3.45</td><td>2.32</td><td>67.72</td><td>82.75</td><td>74.71</td></tr>
-	</tbody>
-</table>
-</div>
-
-<div class="tab-pane" id="palp">
-<table class="table table-bordered table-striped">
-	<thead class="thead-dark">
-		<tr>
-			<th>Member</th>
-			<th>Palp ready</th>
-			<th>Emperor Palpatine</th>
-			<th>Darth Vader</th>
-			<th>Sith Trooper</th>
-			<th>Grand Moff Tarkin</th>
-			<th>Darth Nihilus</th>
-        </tr>
-	</thead>
-	<tbody>
-<tr><td>FΩD DarthTyranus</td><td>nein</td><td>87.66</td><td>86.75</td><td>74.05</td><td>72.79</td><td>64.08</td></tr>
-<tr><td>Ringlo</td><td>nein</td><td>87.66</td><td>84.15</td><td>5.98</td><td>67.97</td><td>6.64</td></tr>
-<tr><td>Exor Lupos</td><td>nein</td><td>89.50</td><td>99.08</td><td>44.31</td><td>75.96</td><td>76.25</td></tr>
-<tr><td>USeeMeNoMore</td><td>nein</td><td>97.30</td><td>86.75</td><td>23.29</td><td>67.96</td><td>71.35</td></tr>
-<tr><td>DK Yami</td><td>ja</td><td>94.16</td><td>86.75</td><td>93.95</td><td>55.24</td><td>87.80</td></tr>
-<tr><td>HansVader</td><td>nein</td><td>81.85</td><td>81.56</td><td>27.47</td><td>64.89</td><td>67.68</td></tr>
-<tr><td>FΩD TheOnlyGH</td><td>ja</td><td>72.50</td><td>84.60</td><td>75.78</td><td>63.64</td><td>74.60</td></tr>
-<tr><td>Watchman Bombassa</td><td>nein</td><td>72.79</td><td>86.46</td><td>12.28</td><td>67.68</td><td>74.52</td></tr>
-<tr><td>HanDrangSolo</td><td>nein</td><td>80.28</td><td>88.29</td><td>16.91</td><td>67.89</td><td>39.42</td></tr>
-<tr><td>ॐgotshiॐ</td><td>nein</td><td>86.75</td><td>87.66</td><td>12.13</td><td>70.29</td><td>35.91</td></tr>
-<tr><td>troubIem4ker</td><td>nein</td><td>71.92</td><td>86.46</td><td>18.95</td><td>60.75</td><td>55.67</td></tr>
-<tr><td>Bruenor</td><td>nein</td><td>73.38</td><td>84.15</td><td>59.50</td><td>75.38</td><td>72.79</td></tr>
-<tr><td>Bexis</td><td>nein</td><td>68.52</td><td>86.46</td><td>15.93</td><td>62.16</td><td>73.15</td></tr>
-<tr><td>MaceॐNow</td><td>nein</td><td>74.23</td><td>88.58</td><td>25.60</td><td>77.16</td><td>72.79</td></tr>
-<tr><td>BladeXXL</td><td>nein</td><td>100.00</td><td>100.00</td><td>56.21</td><td>78.08</td><td>89.50</td></tr>
-<tr><td>Rustikal</td><td>ja</td><td>97.88</td><td>75.75</td><td>95.16</td><td>71.76</td><td>89.50</td></tr>
-<tr><td>FΩD Swiftmind</td><td>ja</td><td>70.29</td><td>78.96</td><td>64.15</td><td>58.82</td><td>41.97</td></tr>
-<tr><td>Faceless</td><td>nein</td><td>99.71</td><td>78.71</td><td>70.78</td><td>70.87</td><td>71.92</td></tr>
-<tr><td>el tino</td><td>ja</td><td>89.50</td><td>89.50</td><td>98.76</td><td>66.96</td><td>89.50</td></tr>
-<tr><td>SB Tubifex</td><td>ja</td><td>83.29</td><td>73.65</td><td>67.77</td><td>61.88</td><td>76.25</td></tr>
-<tr><td>Mettbrötchen</td><td>nein</td><td>75.96</td><td>96.96</td><td>61.77</td><td>74.60</td><td>83.29</td></tr>
-<tr><td>Lakkes93</td><td>ja</td><td>98.17</td><td>76.25</td><td>61.55</td><td>61.98</td><td>76.25</td></tr>
-<tr><td>DK BenWalker</td><td>ja</td><td>87.66</td><td>86.75</td><td>80.94</td><td>69.51</td><td>77.16</td></tr>
-<tr><td>FΩD Freddy Fuchur</td><td>ja</td><td>85.02</td><td>86.75</td><td>59.59</td><td>74.23</td><td>68.74</td></tr>
-<tr><td>Zossenfighter CS</td><td>nein</td><td>97.25</td><td>80.78</td><td>5.98</td><td>62.16</td><td>72.79</td></tr>
-<tr><td>DeadlyFX aka ACID Heok</td><td>ja</td><td>76.25</td><td>86.75</td><td>96.28</td><td>76.25</td><td>87.66</td></tr>
-<tr><td>Torham</td><td>nein</td><td>71.35</td><td>83.87</td><td>0.00</td><td>74.23</td><td>63.36</td></tr>
-<tr><td>skugde</td><td>nein</td><td>87.66</td><td>86.75</td><td>5.98</td><td>66.19</td><td>77.16</td></tr>
-<tr><td>FΩD Larykk</td><td>nein</td><td>86.46</td><td>75.97</td><td>51.80</td><td>60.48</td><td>86.75</td></tr>
-<tr><td>Bizkit</td><td>ja</td><td>88.08</td><td>83.87</td><td>74.40</td><td>76.25</td><td>100.00</td></tr>
-<tr><td>Snow xy</td><td>nein</td><td>88.58</td><td>98.17</td><td>18.84</td><td>69.37</td><td>87.66</td></tr>
-<tr><td>SF Kylvader</td><td>ja</td><td>89.50</td><td>87.66</td><td>64.15</td><td>69.51</td><td>86.75</td></tr>
-<tr><td>Lenox</td><td>nein</td><td>83.87</td><td>83.29</td><td>17.55</td><td>69.23</td><td>79.00</td></tr>
-<tr><td>Alhina</td><td>ja</td><td>72.79</td><td>83.95</td><td>68.59</td><td>70.42</td><td>58.68</td></tr>
-<tr><td>Kyle</td><td>nein</td><td>87.09</td><td>77.79</td><td>42.44</td><td>49.08</td><td>86.46</td></tr>
-<tr><td>DK m0x1337</td><td>nein</td><td>70.09</td><td>80.84</td><td>51.05</td><td>55.93</td><td>29.10</td></tr>
-<tr><td>KA1NSK1ND</td><td>nein</td><td>81.84</td><td>85.02</td><td>18.45</td><td>74.71</td><td>72.79</td></tr>
-<tr><td>Æco</td><td>nein</td><td>100.00</td><td>87.66</td><td>58.03</td><td>73.36</td><td>87.66</td></tr>
-<tr><td>Lanjesus</td><td>ja</td><td>87.66</td><td>87.66</td><td>78.40</td><td>62.47</td><td>72.74</td></tr>
-<tr><td>FΩD Hashtag</td><td>nein</td><td>87.38</td><td>86.46</td><td>50.22</td><td>71.92</td><td>85.88</td></tr>
-<tr><td>FΩD Dorinur</td><td>nein</td><td>100.00</td><td>89.50</td><td>49.03</td><td>64.27</td><td>70.69</td></tr>
-<tr><td>Wombat</td><td>nein</td><td>88.58</td><td>75.96</td><td>51.51</td><td>73.65</td><td>54.28</td></tr>
-<tr><td>FΩD BastosBanditos</td><td>nein</td><td>96.39</td><td>86.75</td><td>22.40</td><td>75.38</td><td>37.66</td></tr>
-<tr><td>FΩD Mc Gaiver</td><td>ja</td><td>75.46</td><td>86.75</td><td>73.99</td><td>87.38</td><td>75.33</td></tr>
-<tr><td>Caspar</td><td>nein</td><td>100.00</td><td>95.23</td><td>8.97</td><td>72.21</td><td>72.79</td></tr>
-<tr><td>Vin</td><td>nein</td><td>70.83</td><td>58.99</td><td>26.80</td><td>58.63</td><td>53.45</td></tr>
-	</tbody>
-</table>
-</div>
-
-</div>
+    <div class="tab-content">
+        <div class="tab-pane active" id="overview">
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Member</th>
+                    <th>RJT ready</th>
+                    <th>GP</th>
+                    <th>SabineShredder ready</th>
+                    <th>GP</th>
+                    <th>Nightsisters ready</th>
+                    <th>GP</th>
+                    <th>ImperialTrooper ready</th>
+                    <th>GP</th>
+                    <th>ChexMix ready</th>
+                    <th>GP</th>
+                    <th>Zalpatine ready</th>
+                    <th>GP</th>
+                    <th>KruFO ready</th>
+                    <th>GP</th>
+                                    </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <td>Ringlo</td>
+                <td>Nein</td>
+                <td>68.82</td>
+                <td>Ja</td>
+                <td>84.28</td>
+                <td>Nein</td>
+                <td>32.04</td>
+                <td>Nein</td>
+                <td>54.98</td>
+                <td>Ja</td>
+                <td>80.91</td>
+                <td>Nein</td>
+                <td>50.48</td>
+                <td>Nein</td>
+                <td>62.43</td>
+                                </tr>
+                <tr>
+                <td>FΩD DarthTyranus</td>
+                <td>Ja</td>
+                <td>85.94</td>
+                <td>Nein</td>
+                <td>80.57</td>
+                <td>Nein</td>
+                <td>78.70</td>
+                <td>Ja</td>
+                <td>86.90</td>
+                <td>Ja</td>
+                <td>80.13</td>
+                <td>Nein</td>
+                <td>77.07</td>
+                <td>Ja</td>
+                <td>70.41</td>
+                                </tr>
+                <tr>
+                <td>mutti</td>
+                <td>Ja</td>
+                <td>86.86</td>
+                <td>Nein</td>
+                <td>57.49</td>
+                <td>Nein</td>
+                <td>62.48</td>
+                <td>Nein</td>
+                <td>54.71</td>
+                <td>Nein</td>
+                <td>63.59</td>
+                <td>Nein</td>
+                <td>62.54</td>
+                <td>Ja</td>
+                <td>65.29</td>
+                                </tr>
+                <tr>
+                <td>Exor Lupos</td>
+                <td>Ja</td>
+                <td>85.17</td>
+                <td>Ja</td>
+                <td>86.36</td>
+                <td>Nein</td>
+                <td>74.27</td>
+                <td>Nein</td>
+                <td>71.47</td>
+                <td>Ja</td>
+                <td>88.25</td>
+                <td>Nein</td>
+                <td>77.02</td>
+                <td>Ja</td>
+                <td>74.45</td>
+                                </tr>
+                <tr>
+                <td>USeeMeNoMore</td>
+                <td>Nein</td>
+                <td>65.84</td>
+                <td>Ja</td>
+                <td>86.57</td>
+                <td>Nein</td>
+                <td>55.54</td>
+                <td>Ja</td>
+                <td>67.57</td>
+                <td>Ja</td>
+                <td>90.64</td>
+                <td>Nein</td>
+                <td>69.50</td>
+                <td>Nein</td>
+                <td>61.36</td>
+                                </tr>
+                <tr>
+                <td>DK Yami</td>
+                <td>Nein</td>
+                <td>48.83</td>
+                <td>Nein</td>
+                <td>83.16</td>
+                <td>Nein</td>
+                <td>54.90</td>
+                <td>Nein</td>
+                <td>67.16</td>
+                <td>Ja</td>
+                <td>85.22</td>
+                <td>Ja</td>
+                <td>83.58</td>
+                <td>Ja</td>
+                <td>71.04</td>
+                                </tr>
+                <tr>
+                <td>HansVader</td>
+                <td>Ja</td>
+                <td>90.24</td>
+                <td>Ja</td>
+                <td>76.56</td>
+                <td>Nein</td>
+                <td>59.01</td>
+                <td>Ja</td>
+                <td>83.77</td>
+                <td>Ja</td>
+                <td>82.48</td>
+                <td>Ja</td>
+                <td>64.69</td>
+                <td>Nein</td>
+                <td>51.63</td>
+                                </tr>
+                <tr>
+                <td>FΩD TheOnlyGH</td>
+                <td>Ja</td>
+                <td>91.30</td>
+                <td>Ja</td>
+                <td>86.18</td>
+                <td>Nein</td>
+                <td>79.48</td>
+                <td>Nein</td>
+                <td>53.73</td>
+                <td>Ja</td>
+                <td>85.61</td>
+                <td>Ja</td>
+                <td>74.22</td>
+                <td>Ja</td>
+                <td>74.96</td>
+                                </tr>
+                <tr>
+                <td>Watchman Bombassa</td>
+                <td>Ja</td>
+                <td>92.09</td>
+                <td>Ja</td>
+                <td>85.48</td>
+                <td>Nein</td>
+                <td>56.68</td>
+                <td>Nein</td>
+                <td>74.63</td>
+                <td>Ja</td>
+                <td>90.29</td>
+                <td>Nein</td>
+                <td>62.75</td>
+                <td>Nein</td>
+                <td>62.28</td>
+                                </tr>
+                <tr>
+                <td>HanDrangSolo</td>
+                <td>Ja</td>
+                <td>91.69</td>
+                <td>Nein</td>
+                <td>78.77</td>
+                <td>Nein</td>
+                <td>51.46</td>
+                <td>Nein</td>
+                <td>55.38</td>
+                <td>Ja</td>
+                <td>87.68</td>
+                <td>Nein</td>
+                <td>58.74</td>
+                <td>Nein</td>
+                <td>67.92</td>
+                                </tr>
+                <tr>
+                <td>ॐgotshiॐ</td>
+                <td>Nein</td>
+                <td>68.96</td>
+                <td>Ja</td>
+                <td>87.43</td>
+                <td>Nein</td>
+                <td>61.32</td>
+                <td>Nein</td>
+                <td>68.58</td>
+                <td>Ja</td>
+                <td>90.01</td>
+                <td>Nein</td>
+                <td>58.55</td>
+                <td>Nein</td>
+                <td>61.74</td>
+                                </tr>
+                <tr>
+                <td>troubIem4ker</td>
+                <td>Ja</td>
+                <td>86.91</td>
+                <td>Nein</td>
+                <td>79.95</td>
+                <td>Nein</td>
+                <td>58.26</td>
+                <td>Ja</td>
+                <td>84.33</td>
+                <td>Ja</td>
+                <td>82.44</td>
+                <td>Nein</td>
+                <td>58.75</td>
+                <td>Ja</td>
+                <td>85.61</td>
+                                </tr>
+                <tr>
+                <td>Bruenor</td>
+                <td>Ja</td>
+                <td>89.23</td>
+                <td>Ja</td>
+                <td>87.37</td>
+                <td>Nein</td>
+                <td>78.40</td>
+                <td>Ja</td>
+                <td>86.72</td>
+                <td>Ja</td>
+                <td>85.47</td>
+                <td>Nein</td>
+                <td>73.04</td>
+                <td>Ja</td>
+                <td>82.67</td>
+                                </tr>
+                <tr>
+                <td>Bexis</td>
+                <td>Nein</td>
+                <td>49.41</td>
+                <td>Ja</td>
+                <td>78.01</td>
+                <td>Nein</td>
+                <td>30.43</td>
+                <td>Nein</td>
+                <td>52.90</td>
+                <td>Nein</td>
+                <td>79.18</td>
+                <td>Nein</td>
+                <td>61.25</td>
+                <td>Nein</td>
+                <td>65.30</td>
+                                </tr>
+                <tr>
+                <td>MaceॐNow</td>
+                <td>Nein</td>
+                <td>67.01</td>
+                <td>Ja</td>
+                <td>88.08</td>
+                <td>Nein</td>
+                <td>70.33</td>
+                <td>Nein</td>
+                <td>64.66</td>
+                <td>Ja</td>
+                <td>93.68</td>
+                <td>Nein</td>
+                <td>67.67</td>
+                <td>Nein</td>
+                <td>64.83</td>
+                                </tr>
+                <tr>
+                <td>BladeXXL</td>
+                <td>Nein</td>
+                <td>63.66</td>
+                <td>Ja</td>
+                <td>83.38</td>
+                <td>Nein</td>
+                <td>73.85</td>
+                <td>Ja</td>
+                <td>89.18</td>
+                <td>Ja</td>
+                <td>87.42</td>
+                <td>Nein</td>
+                <td>84.76</td>
+                <td>Nein</td>
+                <td>77.52</td>
+                                </tr>
+                <tr>
+                <td>Rustikal</td>
+                <td>Nein</td>
+                <td>57.48</td>
+                <td>Nein</td>
+                <td>52.87</td>
+                <td>Nein</td>
+                <td>67.71</td>
+                <td>Nein</td>
+                <td>49.98</td>
+                <td>Ja</td>
+                <td>69.42</td>
+                <td>Ja</td>
+                <td>89.06</td>
+                <td>Nein</td>
+                <td>71.25</td>
+                                </tr>
+                <tr>
+                <td>FΩD Swiftmind</td>
+                <td>Ja</td>
+                <td>85.87</td>
+                <td>Ja</td>
+                <td>80.85</td>
+                <td>Nein</td>
+                <td>47.24</td>
+                <td>Ja</td>
+                <td>63.17</td>
+                <td>Ja</td>
+                <td>69.06</td>
+                <td>Ja</td>
+                <td>62.84</td>
+                <td>Ja</td>
+                <td>82.34</td>
+                                </tr>
+                <tr>
+                <td>J0HN D03</td>
+                <td>Nein</td>
+                <td>52.82</td>
+                <td>Nein</td>
+                <td>52.38</td>
+                <td>Nein</td>
+                <td>27.89</td>
+                <td>Ja</td>
+                <td>79.86</td>
+                <td>Ja</td>
+                <td>90.79</td>
+                <td>Nein</td>
+                <td>58.05</td>
+                <td>Nein</td>
+                <td>65.65</td>
+                                </tr>
+                <tr>
+                <td>Faceless</td>
+                <td>Ja</td>
+                <td>92.89</td>
+                <td>Ja</td>
+                <td>85.59</td>
+                <td>Nein</td>
+                <td>67.09</td>
+                <td>Nein</td>
+                <td>78.03</td>
+                <td>Ja</td>
+                <td>86.84</td>
+                <td>Nein</td>
+                <td>78.40</td>
+                <td>Nein</td>
+                <td>64.45</td>
+                                </tr>
+                <tr>
+                <td>dubidum</td>
+                <td>Ja</td>
+                <td>80.48</td>
+                <td>Nein</td>
+                <td>69.64</td>
+                <td>Nein</td>
+                <td>59.67</td>
+                <td>Ja</td>
+                <td>84.22</td>
+                <td>Ja</td>
+                <td>83.53</td>
+                <td>Nein</td>
+                <td>64.12</td>
+                <td>Ja</td>
+                <td>66.94</td>
+                                </tr>
+                <tr>
+                <td>el tino</td>
+                <td>Ja</td>
+                <td>86.67</td>
+                <td>Ja</td>
+                <td>82.35</td>
+                <td>Nein</td>
+                <td>69.76</td>
+                <td>Ja</td>
+                <td>72.19</td>
+                <td>Ja</td>
+                <td>77.62</td>
+                <td>Ja</td>
+                <td>86.84</td>
+                <td>Ja</td>
+                <td>67.46</td>
+                                </tr>
+                <tr>
+                <td>SB Tubifex</td>
+                <td>Ja</td>
+                <td>87.91</td>
+                <td>Ja</td>
+                <td>79.90</td>
+                <td>Nein</td>
+                <td>87.97</td>
+                <td>Ja</td>
+                <td>82.47</td>
+                <td>Ja</td>
+                <td>92.59</td>
+                <td>Ja</td>
+                <td>72.57</td>
+                <td>Nein</td>
+                <td>63.52</td>
+                                </tr>
+                <tr>
+                <td>Mettbrötchen</td>
+                <td>Nein</td>
+                <td>68.49</td>
+                <td>Ja</td>
+                <td>76.92</td>
+                <td>Nein</td>
+                <td>66.71</td>
+                <td>Ja</td>
+                <td>89.77</td>
+                <td>Ja</td>
+                <td>80.58</td>
+                <td>Nein</td>
+                <td>78.51</td>
+                <td>Nein</td>
+                <td>92.13</td>
+                                </tr>
+                <tr>
+                <td>Lakkes93</td>
+                <td>Ja</td>
+                <td>91.76</td>
+                <td>Ja</td>
+                <td>90.20</td>
+                <td>Ja</td>
+                <td>84.53</td>
+                <td>Ja</td>
+                <td>73.67</td>
+                <td>Ja</td>
+                <td>96.90</td>
+                <td>Ja</td>
+                <td>74.84</td>
+                <td>Ja</td>
+                <td>72.57</td>
+                                </tr>
+                <tr>
+                <td>DK BenWalker</td>
+                <td>Ja</td>
+                <td>84.22</td>
+                <td>Ja</td>
+                <td>88.20</td>
+                <td>Nein</td>
+                <td>59.99</td>
+                <td>Ja</td>
+                <td>81.01</td>
+                <td>Ja</td>
+                <td>91.55</td>
+                <td>Ja</td>
+                <td>80.40</td>
+                <td>Ja</td>
+                <td>82.01</td>
+                                </tr>
+                <tr>
+                <td>FΩD Freddy Fuchur</td>
+                <td>Ja</td>
+                <td>84.63</td>
+                <td>Ja</td>
+                <td>84.89</td>
+                <td>Nein</td>
+                <td>64.16</td>
+                <td>Ja</td>
+                <td>66.64</td>
+                <td>Ja</td>
+                <td>86.27</td>
+                <td>Ja</td>
+                <td>74.86</td>
+                <td>Nein</td>
+                <td>71.48</td>
+                                </tr>
+                <tr>
+                <td>Zossenfighter CS</td>
+                <td>Nein</td>
+                <td>57.09</td>
+                <td>Ja</td>
+                <td>86.26</td>
+                <td>Nein</td>
+                <td>54.79</td>
+                <td>Ja</td>
+                <td>64.77</td>
+                <td>Ja</td>
+                <td>94.26</td>
+                <td>Nein</td>
+                <td>63.79</td>
+                <td>Ja</td>
+                <td>84.49</td>
+                                </tr>
+                <tr>
+                <td>DeadlyFX aka ACID Heok</td>
+                <td>Ja</td>
+                <td>86.38</td>
+                <td>Ja</td>
+                <td>94.26</td>
+                <td>Nein</td>
+                <td>74.64</td>
+                <td>Ja</td>
+                <td>90.28</td>
+                <td>Ja</td>
+                <td>97.01</td>
+                <td>Ja</td>
+                <td>84.64</td>
+                <td>Ja</td>
+                <td>86.68</td>
+                                </tr>
+                <tr>
+                <td>Torham</td>
+                <td>Ja</td>
+                <td>89.92</td>
+                <td>Nein</td>
+                <td>65.62</td>
+                <td>Nein</td>
+                <td>37.39</td>
+                <td>Nein</td>
+                <td>65.88</td>
+                <td>Nein</td>
+                <td>81.94</td>
+                <td>Nein</td>
+                <td>58.50</td>
+                <td>Nein</td>
+                <td>59.83</td>
+                                </tr>
+                <tr>
+                <td>FΩD Larykk</td>
+                <td>Ja</td>
+                <td>86.63</td>
+                <td>Ja</td>
+                <td>84.56</td>
+                <td>Nein</td>
+                <td>23.63</td>
+                <td>Nein</td>
+                <td>49.31</td>
+                <td>Ja</td>
+                <td>71.04</td>
+                <td>Nein</td>
+                <td>72.29</td>
+                <td>Nein</td>
+                <td>59.91</td>
+                                </tr>
+                <tr>
+                <td>skugde</td>
+                <td>Nein</td>
+                <td>67.79</td>
+                <td>Ja</td>
+                <td>84.20</td>
+                <td>Nein</td>
+                <td>58.21</td>
+                <td>Nein</td>
+                <td>61.27</td>
+                <td>Ja</td>
+                <td>81.97</td>
+                <td>Nein</td>
+                <td>64.75</td>
+                <td>Nein</td>
+                <td>60.23</td>
+                                </tr>
+                <tr>
+                <td>Bizkit</td>
+                <td>Nein</td>
+                <td>45.99</td>
+                <td>Nein</td>
+                <td>85.13</td>
+                <td>Nein</td>
+                <td>56.91</td>
+                <td>Nein</td>
+                <td>76.27</td>
+                <td>Ja</td>
+                <td>88.81</td>
+                <td>Ja</td>
+                <td>84.70</td>
+                <td>Nein</td>
+                <td>59.70</td>
+                                </tr>
+                <tr>
+                <td>Snow xy</td>
+                <td>Ja</td>
+                <td>88.89</td>
+                <td>Ja</td>
+                <td>88.57</td>
+                <td>Nein</td>
+                <td>65.43</td>
+                <td>Nein</td>
+                <td>65.03</td>
+                <td>Nein</td>
+                <td>71.22</td>
+                <td>Nein</td>
+                <td>72.52</td>
+                <td>Ja</td>
+                <td>76.50</td>
+                                </tr>
+                <tr>
+                <td>SF Kylvader</td>
+                <td>Ja</td>
+                <td>84.46</td>
+                <td>Nein</td>
+                <td>66.03</td>
+                <td>Nein</td>
+                <td>58.87</td>
+                <td>Ja</td>
+                <td>85.71</td>
+                <td>Ja</td>
+                <td>92.26</td>
+                <td>Ja</td>
+                <td>81.62</td>
+                <td>Ja</td>
+                <td>80.86</td>
+                                </tr>
+                <tr>
+                <td>Alhina</td>
+                <td>Nein</td>
+                <td>67.84</td>
+                <td>Ja</td>
+                <td>83.86</td>
+                <td>Nein</td>
+                <td>86.94</td>
+                <td>Nein</td>
+                <td>64.18</td>
+                <td>Ja</td>
+                <td>92.91</td>
+                <td>Ja</td>
+                <td>70.89</td>
+                <td>Nein</td>
+                <td>60.75</td>
+                                </tr>
+                <tr>
+                <td>Lenox</td>
+                <td>Nein</td>
+                <td>58.29</td>
+                <td>Ja</td>
+                <td>83.54</td>
+                <td>Nein</td>
+                <td>43.36</td>
+                <td>Nein</td>
+                <td>57.62</td>
+                <td>Nein</td>
+                <td>69.26</td>
+                <td>Nein</td>
+                <td>66.59</td>
+                <td>Ja</td>
+                <td>80.96</td>
+                                </tr>
+                <tr>
+                <td>Kyle</td>
+                <td>Ja</td>
+                <td>88.16</td>
+                <td>Ja</td>
+                <td>84.19</td>
+                <td>Nein</td>
+                <td>53.73</td>
+                <td>Nein</td>
+                <td>82.54</td>
+                <td>Ja</td>
+                <td>90.50</td>
+                <td>Nein</td>
+                <td>68.57</td>
+                <td>Nein</td>
+                <td>73.69</td>
+                                </tr>
+                <tr>
+                <td>DK m0x1337</td>
+                <td>Nein</td>
+                <td>66.28</td>
+                <td>Nein</td>
+                <td>57.42</td>
+                <td>Nein</td>
+                <td>46.45</td>
+                <td>Nein</td>
+                <td>43.67</td>
+                <td>Ja</td>
+                <td>83.58</td>
+                <td>Nein</td>
+                <td>57.40</td>
+                <td>Nein</td>
+                <td>62.01</td>
+                                </tr>
+                <tr>
+                <td>KA1NSK1ND</td>
+                <td>Nein</td>
+                <td>50.49</td>
+                <td>Nein</td>
+                <td>65.21</td>
+                <td>Nein</td>
+                <td>60.69</td>
+                <td>Nein</td>
+                <td>38.11</td>
+                <td>Nein</td>
+                <td>56.47</td>
+                <td>Nein</td>
+                <td>66.66</td>
+                <td>Nein</td>
+                <td>58.76</td>
+                                </tr>
+                <tr>
+                <td>Æco</td>
+                <td>Nein</td>
+                <td>65.54</td>
+                <td>Ja</td>
+                <td>87.36</td>
+                <td>Nein</td>
+                <td>75.67</td>
+                <td>Ja</td>
+                <td>86.45</td>
+                <td>Ja</td>
+                <td>86.76</td>
+                <td>Nein</td>
+                <td>81.49</td>
+                <td>Nein</td>
+                <td>80.05</td>
+                                </tr>
+                <tr>
+                <td>Lanjesus</td>
+                <td>Ja</td>
+                <td>86.92</td>
+                <td>Nein</td>
+                <td>47.15</td>
+                <td>Nein</td>
+                <td>55.77</td>
+                <td>Ja</td>
+                <td>75.94</td>
+                <td>Ja</td>
+                <td>82.40</td>
+                <td>Ja</td>
+                <td>77.79</td>
+                <td>Ja</td>
+                <td>61.52</td>
+                                </tr>
+                <tr>
+                <td>FΩD Dorinur</td>
+                <td>Ja</td>
+                <td>87.71</td>
+                <td>Ja</td>
+                <td>87.96</td>
+                <td>Nein</td>
+                <td>83.44</td>
+                <td>Ja</td>
+                <td>84.81</td>
+                <td>Ja</td>
+                <td>82.72</td>
+                <td>Nein</td>
+                <td>74.70</td>
+                <td>Ja</td>
+                <td>78.27</td>
+                                </tr>
+                <tr>
+                <td>FΩD Hashtag</td>
+                <td>Nein</td>
+                <td>69.13</td>
+                <td>Ja</td>
+                <td>87.95</td>
+                <td>Nein</td>
+                <td>52.63</td>
+                <td>Ja</td>
+                <td>89.80</td>
+                <td>Ja</td>
+                <td>91.29</td>
+                <td>Nein</td>
+                <td>77.52</td>
+                <td>Nein</td>
+                <td>52.27</td>
+                                </tr>
+                <tr>
+                <td>Wombat</td>
+                <td>Nein</td>
+                <td>67.76</td>
+                <td>Nein</td>
+                <td>85.89</td>
+                <td>Nein</td>
+                <td>59.40</td>
+                <td>Nein</td>
+                <td>59.30</td>
+                <td>Ja</td>
+                <td>78.26</td>
+                <td>Nein</td>
+                <td>71.27</td>
+                <td>Nein</td>
+                <td>70.45</td>
+                                </tr>
+                <tr>
+                <td>FΩD BastosBanditos</td>
+                <td>Nein</td>
+                <td>70.42</td>
+                <td>Ja</td>
+                <td>75.72</td>
+                <td>Nein</td>
+                <td>70.47</td>
+                <td>Nein</td>
+                <td>72.34</td>
+                <td>Ja</td>
+                <td>83.87</td>
+                <td>Nein</td>
+                <td>63.71</td>
+                <td>Nein</td>
+                <td>69.01</td>
+                                </tr>
+                <tr>
+                <td>FΩD Mc Gaiver</td>
+                <td>Ja</td>
+                <td>94.81</td>
+                <td>Ja</td>
+                <td>85.51</td>
+                <td>Ja</td>
+                <td>88.11</td>
+                <td>Ja</td>
+                <td>83.17</td>
+                <td>Ja</td>
+                <td>81.05</td>
+                <td>Ja</td>
+                <td>79.92</td>
+                <td>Ja</td>
+                <td>79.91</td>
+                                </tr>
+                <tr>
+                <td>Caspar</td>
+                <td>Nein</td>
+                <td>62.80</td>
+                <td>Ja</td>
+                <td>89.01</td>
+                <td>Nein</td>
+                <td>80.62</td>
+                <td>Nein</td>
+                <td>64.18</td>
+                <td>Ja</td>
+                <td>91.55</td>
+                <td>Nein</td>
+                <td>69.84</td>
+                <td>Nein</td>
+                <td>64.43</td>
+                                </tr>
+                <tr>
+                <td>Vin</td>
+                <td>Nein</td>
+                <td>53.85</td>
+                <td>Ja</td>
+                <td>78.75</td>
+                <td>Nein</td>
+                <td>53.16</td>
+                <td>Nein</td>
+                <td>36.55</td>
+                <td>Ja</td>
+                <td>79.09</td>
+                <td>Nein</td>
+                <td>53.74</td>
+                <td>Ja</td>
+                <td>64.36</td>
+                                </tr>
+                            </tbody>
+        </table>
+        </div>
+        <div class="tab-pane" id="RJT">
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Member</th><th>Ready</th><th>Rey (Jedi Training)</th><th>BB-8</th><th>R2-D2</th><th>Resistance Trooper</th><th>Rey (Scavenger)</th>                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Ringlo</td><td>Nein</td><td>0.00</td><td>85.83</td><td>82.43</td><td>95.05</td><td>80.79</td></tr>
+                <tr><td>FΩD DarthTyranus</td><td>Ja</td><td>81.41</td><td>87.66</td><td>89.50</td><td>90.32</td><td>80.79</td></tr>
+                <tr><td>mutti</td><td>Ja</td><td>80.09</td><td>84.73</td><td>95.52</td><td>94.14</td><td>79.80</td></tr>
+                <tr><td>Exor Lupos</td><td>Ja</td><td>80.35</td><td>77.16</td><td>86.46</td><td>97.11</td><td>84.77</td></tr>
+                <tr><td>USeeMeNoMore</td><td>Nein</td><td>0.00</td><td>65.18</td><td>100.00</td><td>85.57</td><td>78.47</td></tr>
+                <tr><td>DK Yami</td><td>Nein</td><td>0.00</td><td>53.11</td><td>97.67</td><td>22.76</td><td>70.62</td></tr>
+                <tr><td>HansVader</td><td>Ja</td><td>90.45</td><td>88.58</td><td>99.08</td><td>94.26</td><td>78.80</td></tr>
+                <tr><td>FΩD TheOnlyGH</td><td>Ja</td><td>90.71</td><td>96.39</td><td>99.08</td><td>91.50</td><td>78.80</td></tr>
+                <tr><td>Watchman Bombassa</td><td>Ja</td><td>89.08</td><td>98.17</td><td>98.17</td><td>96.24</td><td>78.80</td></tr>
+                <tr><td>HanDrangSolo</td><td>Ja</td><td>90.71</td><td>84.32</td><td>99.42</td><td>93.48</td><td>90.55</td></tr>
+                <tr><td>ॐgotshiॐ</td><td>Nein</td><td>0.00</td><td>89.50</td><td>89.50</td><td>87.88</td><td>77.92</td></tr>
+                <tr><td>troubIem4ker</td><td>Ja</td><td>78.98</td><td>86.75</td><td>89.21</td><td>88.74</td><td>90.88</td></tr>
+                <tr><td>Bruenor</td><td>Ja</td><td>81.41</td><td>89.21</td><td>100.00</td><td>95.05</td><td>80.46</td></tr>
+                <tr><td>Bexis</td><td>Nein</td><td>0.00</td><td>48.81</td><td>100.00</td><td>30.26</td><td>67.97</td></tr>
+                <tr><td>MaceॐNow</td><td>Nein</td><td>0.00</td><td>88.58</td><td>100.00</td><td>64.69</td><td>81.79</td></tr>
+                <tr><td>BladeXXL</td><td>Nein</td><td>0.00</td><td>75.33</td><td>69.23</td><td>92.29</td><td>81.45</td></tr>
+                <tr><td>Rustikal</td><td>Nein</td><td>0.00</td><td>64.15</td><td>89.50</td><td>61.39</td><td>72.35</td></tr>
+                <tr><td>FΩD Swiftmind</td><td>Ja</td><td>90.71</td><td>74.46</td><td>89.50</td><td>93.87</td><td>80.79</td></tr>
+                <tr><td>J0HN D03</td><td>Nein</td><td>0.00</td><td>56.00</td><td>98.17</td><td>50.83</td><td>59.12</td></tr>
+                <tr><td>Faceless</td><td>Ja</td><td>90.71</td><td>89.50</td><td>100.00</td><td>98.75</td><td>85.49</td></tr>
+                <tr><td>dubidum</td><td>Ja</td><td>77.45</td><td>71.01</td><td>83.00</td><td>92.69</td><td>78.23</td></tr>
+                <tr><td>el tino</td><td>Ja</td><td>79.79</td><td>85.83</td><td>89.50</td><td>98.75</td><td>79.47</td></tr>
+                <tr><td>SB Tubifex</td><td>Ja</td><td>78.98</td><td>87.38</td><td>98.17</td><td>95.56</td><td>79.47</td></tr>
+                <tr><td>Mettbrötchen</td><td>Nein</td><td>0.00</td><td>72.79</td><td>97.88</td><td>93.98</td><td>77.81</td></tr>
+                <tr><td>Lakkes93</td><td>Ja</td><td>100.00</td><td>84.73</td><td>100.00</td><td>94.26</td><td>79.80</td></tr>
+                <tr><td>DK BenWalker</td><td>Ja</td><td>89.08</td><td>76.25</td><td>88.58</td><td>87.40</td><td>79.80</td></tr>
+                <tr><td>FΩD Freddy Fuchur</td><td>Ja</td><td>79.79</td><td>85.60</td><td>87.66</td><td>90.32</td><td>79.80</td></tr>
+                <tr><td>Zossenfighter CS</td><td>Nein</td><td>0.00</td><td>81.56</td><td>97.25</td><td>27.82</td><td>78.80</td></tr>
+                <tr><td>DeadlyFX aka ACID Heok</td><td>Ja</td><td>79.79</td><td>76.25</td><td>100.00</td><td>95.05</td><td>80.79</td></tr>
+                <tr><td>Torham</td><td>Ja</td><td>90.71</td><td>88.58</td><td>100.00</td><td>91.50</td><td>78.80</td></tr>
+                <tr><td>FΩD Larykk</td><td>Ja</td><td>80.60</td><td>86.75</td><td>89.50</td><td>97.49</td><td>78.80</td></tr>
+                <tr><td>skugde</td><td>Nein</td><td>0.00</td><td>71.92</td><td>99.08</td><td>89.14</td><td>78.80</td></tr>
+                <tr><td>Bizkit</td><td>Nein</td><td>0.00</td><td>69.85</td><td>88.58</td><td>7.91</td><td>63.61</td></tr>
+                <tr><td>Snow xy</td><td>Ja</td><td>81.41</td><td>86.75</td><td>97.25</td><td>96.24</td><td>82.78</td></tr>
+                <tr><td>SF Kylvader</td><td>Ja</td><td>81.41</td><td>81.27</td><td>99.08</td><td>89.53</td><td>70.99</td></tr>
+                <tr><td>Alhina</td><td>Nein</td><td>0.00</td><td>72.79</td><td>99.71</td><td>89.14</td><td>77.59</td></tr>
+                <tr><td>Lenox</td><td>Nein</td><td>0.00</td><td>72.74</td><td>79.73</td><td>61.41</td><td>77.57</td></tr>
+                <tr><td>Kyle</td><td>Ja</td><td>96.62</td><td>83.00</td><td>87.66</td><td>95.05</td><td>78.47</td></tr>
+                <tr><td>DK m0x1337</td><td>Nein</td><td>0.00</td><td>71.81</td><td>89.50</td><td>95.98</td><td>74.10</td></tr>
+                <tr><td>KA1NSK1ND</td><td>Nein</td><td>0.00</td><td>41.40</td><td>100.00</td><td>47.91</td><td>63.15</td></tr>
+                <tr><td>Æco</td><td>Nein</td><td>0.00</td><td>70.29</td><td>84.73</td><td>93.87</td><td>78.80</td></tr>
+                <tr><td>Lanjesus</td><td>Ja</td><td>89.90</td><td>86.75</td><td>87.66</td><td>91.50</td><td>78.80</td></tr>
+                <tr><td>FΩD Dorinur</td><td>Ja</td><td>81.41</td><td>85.83</td><td>100.00</td><td>91.50</td><td>79.80</td></tr>
+                <tr><td>FΩD Hashtag</td><td>Nein</td><td>0.00</td><td>78.08</td><td>100.00</td><td>88.74</td><td>78.80</td></tr>
+                <tr><td>Wombat</td><td>Nein</td><td>0.00</td><td>71.92</td><td>100.00</td><td>88.08</td><td>78.80</td></tr>
+                <tr><td>FΩD BastosBanditos</td><td>Nein</td><td>0.00</td><td>84.15</td><td>100.00</td><td>89.14</td><td>78.80</td></tr>
+                <tr><td>FΩD Mc Gaiver</td><td>Ja</td><td>99.19</td><td>88.58</td><td>100.00</td><td>98.35</td><td>87.93</td></tr>
+                <tr><td>Caspar</td><td>Nein</td><td>0.00</td><td>71.43</td><td>73.44</td><td>90.32</td><td>78.80</td></tr>
+                <tr><td>Vin</td><td>Nein</td><td>0.00</td><td>62.67</td><td>75.11</td><td>64.86</td><td>66.63</td></tr>
+                            </tbody>
+        </table>
+        </div>
+        <div class="tab-pane" id="SabineShredder">
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Member</th><th>Ready</th><th>Admiral Ackbar</th><th>Barriss Offee</th><th>General Kenobi</th><th>Grand Admiral Thrawn</th><th>Sabine Wren</th>                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Ringlo</td><td>Ja</td><td>96.40</td><td>90.88</td><td>88.98</td><td>77.16</td><td>68.00</td></tr>
+                <tr><td>FΩD DarthTyranus</td><td>Nein</td><td>82.75</td><td>71.26</td><td>100.00</td><td>88.29</td><td>60.53</td></tr>
+                <tr><td>mutti</td><td>Nein</td><td>93.01</td><td>0.00</td><td>77.74</td><td>85.88</td><td>30.80</td></tr>
+                <tr><td>Exor Lupos</td><td>Ja</td><td>96.03</td><td>96.84</td><td>97.68</td><td>77.16</td><td>64.07</td></tr>
+                <tr><td>USeeMeNoMore</td><td>Ja</td><td>81.94</td><td>96.84</td><td>100.00</td><td>89.50</td><td>64.57</td></tr>
+                <tr><td>DK Yami</td><td>Nein</td><td>80.32</td><td>91.39</td><td>98.47</td><td>76.68</td><td>68.94</td></tr>
+                <tr><td>HansVader</td><td>Ja</td><td>84.66</td><td>52.63</td><td>98.84</td><td>97.25</td><td>49.40</td></tr>
+                <tr><td>FΩD TheOnlyGH</td><td>Ja</td><td>91.27</td><td>94.85</td><td>98.84</td><td>88.00</td><td>57.91</td></tr>
+                <tr><td>Watchman Bombassa</td><td>Ja</td><td>76.36</td><td>90.55</td><td>98.84</td><td>89.50</td><td>72.17</td></tr>
+                <tr><td>HanDrangSolo</td><td>Nein</td><td>89.73</td><td>88.53</td><td>99.64</td><td>65.80</td><td>50.17</td></tr>
+                <tr><td>ॐgotshiॐ</td><td>Ja</td><td>94.14</td><td>100.00</td><td>98.84</td><td>77.16</td><td>67.02</td></tr>
+                <tr><td>troubIem4ker</td><td>Nein</td><td>89.63</td><td>72.98</td><td>100.00</td><td>88.58</td><td>48.55</td></tr>
+                <tr><td>Bruenor</td><td>Ja</td><td>95.27</td><td>98.28</td><td>100.00</td><td>79.00</td><td>64.31</td></tr>
+                <tr><td>Bexis</td><td>Ja</td><td>77.53</td><td>75.92</td><td>97.31</td><td>80.00</td><td>59.28</td></tr>
+                <tr><td>MaceॐNow</td><td>Ja</td><td>95.27</td><td>100.00</td><td>100.00</td><td>78.08</td><td>67.06</td></tr>
+                <tr><td>BladeXXL</td><td>Ja</td><td>97.60</td><td>65.41</td><td>96.15</td><td>89.50</td><td>68.24</td></tr>
+                <tr><td>Rustikal</td><td>Nein</td><td>64.87</td><td>28.29</td><td>63.47</td><td>48.26</td><td>59.43</td></tr>
+                <tr><td>FΩD Swiftmind</td><td>Ja</td><td>90.76</td><td>56.67</td><td>100.00</td><td>89.50</td><td>67.35</td></tr>
+                <tr><td>J0HN D03</td><td>Nein</td><td>77.54</td><td>21.59</td><td>76.01</td><td>56.52</td><td>30.25</td></tr>
+                <tr><td>Faceless</td><td>Ja</td><td>80.75</td><td>93.86</td><td>100.00</td><td>89.50</td><td>63.83</td></tr>
+                <tr><td>dubidum</td><td>Nein</td><td>91.49</td><td>49.50</td><td>63.18</td><td>87.66</td><td>56.38</td></tr>
+                <tr><td>el tino</td><td>Ja</td><td>89.25</td><td>68.57</td><td>97.68</td><td>89.50</td><td>66.75</td></tr>
+                <tr><td>SB Tubifex</td><td>Ja</td><td>93.63</td><td>62.60</td><td>100.00</td><td>76.25</td><td>67.02</td></tr>
+                <tr><td>Mettbrötchen</td><td>Ja</td><td>90.38</td><td>62.73</td><td>75.28</td><td>89.21</td><td>67.02</td></tr>
+                <tr><td>Lakkes93</td><td>Ja</td><td>93.77</td><td>94.85</td><td>97.68</td><td>88.58</td><td>76.14</td></tr>
+                <tr><td>DK BenWalker</td><td>Ja</td><td>90.10</td><td>97.89</td><td>97.68</td><td>89.50</td><td>65.80</td></tr>
+                <tr><td>FΩD Freddy Fuchur</td><td>Ja</td><td>75.52</td><td>96.84</td><td>100.00</td><td>89.50</td><td>62.59</td></tr>
+                <tr><td>Zossenfighter CS</td><td>Ja</td><td>86.59</td><td>96.27</td><td>96.52</td><td>86.75</td><td>65.20</td></tr>
+                <tr><td>DeadlyFX aka ACID Heok</td><td>Ja</td><td>96.40</td><td>97.89</td><td>100.00</td><td>97.25</td><td>79.74</td></tr>
+                <tr><td>Torham</td><td>Nein</td><td>86.85</td><td>29.91</td><td>99.64</td><td>87.66</td><td>24.06</td></tr>
+                <tr><td>FΩD Larykk</td><td>Ja</td><td>88.22</td><td>97.56</td><td>100.00</td><td>73.94</td><td>63.06</td></tr>
+                <tr><td>skugde</td><td>Ja</td><td>90.38</td><td>94.85</td><td>100.00</td><td>71.75</td><td>64.03</td></tr>
+                <tr><td>Bizkit</td><td>Nein</td><td>90.24</td><td>97.89</td><td>97.68</td><td>89.50</td><td>50.33</td></tr>
+                <tr><td>Snow xy</td><td>Ja</td><td>91.88</td><td>96.84</td><td>100.00</td><td>88.58</td><td>65.53</td></tr>
+                <tr><td>SF Kylvader</td><td>Nein</td><td>75.59</td><td>5.09</td><td>100.00</td><td>88.58</td><td>60.91</td></tr>
+                <tr><td>Alhina</td><td>Ja</td><td>90.38</td><td>88.35</td><td>98.84</td><td>80.92</td><td>60.82</td></tr>
+                <tr><td>Lenox</td><td>Ja</td><td>77.08</td><td>94.52</td><td>100.00</td><td>78.71</td><td>67.39</td></tr>
+                <tr><td>Kyle</td><td>Ja</td><td>90.76</td><td>96.84</td><td>97.31</td><td>89.21</td><td>46.84</td></tr>
+                <tr><td>DK m0x1337</td><td>Nein</td><td>90.10</td><td>51.09</td><td>71.33</td><td>28.13</td><td>46.42</td></tr>
+                <tr><td>KA1NSK1ND</td><td>Nein</td><td>93.77</td><td>9.50</td><td>100.00</td><td>57.45</td><td>65.35</td></tr>
+                <tr><td>Æco</td><td>Ja</td><td>90.76</td><td>92.80</td><td>98.84</td><td>86.46</td><td>67.97</td></tr>
+                <tr><td>Lanjesus</td><td>Nein</td><td>76.72</td><td>7.63</td><td>0.00</td><td>86.46</td><td>64.96</td></tr>
+                <tr><td>FΩD Dorinur</td><td>Ja</td><td>80.74</td><td>100.00</td><td>90.98</td><td>79.00</td><td>89.10</td></tr>
+                <tr><td>FΩD Hashtag</td><td>Ja</td><td>83.46</td><td>96.84</td><td>99.64</td><td>97.25</td><td>62.55</td></tr>
+                <tr><td>Wombat</td><td>Nein</td><td>89.63</td><td>97.89</td><td>100.00</td><td>89.50</td><td>52.44</td></tr>
+                <tr><td>FΩD BastosBanditos</td><td>Ja</td><td>90.76</td><td>56.75</td><td>100.00</td><td>89.50</td><td>41.58</td></tr>
+                <tr><td>FΩD Mc Gaiver</td><td>Ja</td><td>90.31</td><td>98.95</td><td>96.52</td><td>77.16</td><td>64.59</td></tr>
+                <tr><td>Caspar</td><td>Ja</td><td>90.76</td><td>98.95</td><td>100.00</td><td>89.50</td><td>65.84</td></tr>
+                <tr><td>Vin</td><td>Ja</td><td>93.84</td><td>79.27</td><td>82.51</td><td>74.36</td><td>63.77</td></tr>
+                            </tbody>
+        </table>
+        </div>
+        <div class="tab-pane" id="Nightsisters">
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Member</th><th>Ready</th><th>Mother Talzin</th><th>Asajj Ventress</th><th>Old Daka</th><th>Nightsister Acolyte</th><th>Nightsister Zombie</th><th>Talia</th>                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Ringlo</td><td>Nein</td><td>4.43</td><td>55.71</td><td>23.36</td><td>9.58</td><td>5.98</td><td>67.09</td></tr>
+                <tr><td>FΩD DarthTyranus</td><td>Nein</td><td>62.35</td><td>93.79</td><td>75.97</td><td>77.25</td><td>57.05</td><td>84.15</td></tr>
+                <tr><td>mutti</td><td>Nein</td><td>12.65</td><td>86.88</td><td>68.79</td><td>75.23</td><td>16.18</td><td>68.83</td></tr>
+                <tr><td>Exor Lupos</td><td>Nein</td><td>54.04</td><td>83.10</td><td>78.36</td><td>85.92</td><td>53.82</td><td>69.94</td></tr>
+                <tr><td>USeeMeNoMore</td><td>Nein</td><td>39.55</td><td>66.68</td><td>66.86</td><td>17.61</td><td>39.82</td><td>64.80</td></tr>
+                <tr><td>DK Yami</td><td>Nein</td><td>18.06</td><td>69.21</td><td>74.26</td><td>30.07</td><td>24.41</td><td>82.88</td></tr>
+                <tr><td>HansVader</td><td>Nein</td><td>43.95</td><td>61.71</td><td>77.20</td><td>74.11</td><td>38.06</td><td>37.60</td></tr>
+                <tr><td>FΩD TheOnlyGH</td><td>Nein</td><td>73.14</td><td>73.65</td><td>77.65</td><td>97.13</td><td>63.87</td><td>75.81</td></tr>
+                <tr><td>Watchman Bombassa</td><td>Nein</td><td>42.65</td><td>52.66</td><td>64.06</td><td>65.95</td><td>40.80</td><td>58.06</td></tr>
+                <tr><td>HanDrangSolo</td><td>Nein</td><td>39.59</td><td>57.45</td><td>57.60</td><td>14.52</td><td>45.85</td><td>56.83</td></tr>
+                <tr><td>ॐgotshiॐ</td><td>Nein</td><td>45.20</td><td>67.97</td><td>78.41</td><td>63.28</td><td>47.40</td><td>51.75</td></tr>
+                <tr><td>troubIem4ker</td><td>Nein</td><td>40.10</td><td>57.80</td><td>62.85</td><td>70.30</td><td>41.42</td><td>60.23</td></tr>
+                <tr><td>Bruenor</td><td>Nein</td><td>49.88</td><td>85.88</td><td>73.87</td><td>100.00</td><td>42.66</td><td>82.37</td></tr>
+                <tr><td>Bexis</td><td>Nein</td><td>18.94</td><td>28.39</td><td>45.67</td><td>28.82</td><td>16.52</td><td>30.31</td></tr>
+                <tr><td>MaceॐNow</td><td>Nein</td><td>47.98</td><td>69.51</td><td>76.14</td><td>70.40</td><td>62.44</td><td>87.60</td></tr>
+                <tr><td>BladeXXL</td><td>Nein</td><td>45.03</td><td>85.83</td><td>82.78</td><td>81.24</td><td>51.79</td><td>74.39</td></tr>
+                <tr><td>Rustikal</td><td>Nein</td><td>63.56</td><td>67.27</td><td>70.33</td><td>74.54</td><td>57.00</td><td>62.84</td></tr>
+                <tr><td>FΩD Swiftmind</td><td>Nein</td><td>17.05</td><td>68.51</td><td>58.87</td><td>33.34</td><td>28.34</td><td>58.45</td></tr>
+                <tr><td>J0HN D03</td><td>Nein</td><td>11.30</td><td>27.91</td><td>44.54</td><td>2.66</td><td>12.93</td><td>42.77</td></tr>
+                <tr><td>Faceless</td><td>Nein</td><td>43.59</td><td>64.97</td><td>72.33</td><td>80.10</td><td>50.13</td><td>74.46</td></tr>
+                <tr><td>dubidum</td><td>Nein</td><td>38.80</td><td>86.75</td><td>59.55</td><td>43.76</td><td>45.19</td><td>68.07</td></tr>
+                <tr><td>el tino</td><td>Nein</td><td>43.10</td><td>70.10</td><td>72.02</td><td>85.70</td><td>42.06</td><td>77.86</td></tr>
+                <tr><td>SB Tubifex</td><td>Nein</td><td>81.84</td><td>97.88</td><td>82.57</td><td>96.74</td><td>61.78</td><td>80.84</td></tr>
+                <tr><td>Mettbrötchen</td><td>Nein</td><td>41.49</td><td>66.08</td><td>70.57</td><td>74.62</td><td>42.75</td><td>80.81</td></tr>
+                <tr><td>Lakkes93</td><td>Ja</td><td>86.46</td><td>75.96</td><td>70.03</td><td>96.28</td><td>93.95</td><td>59.49</td></tr>
+                <tr><td>DK BenWalker</td><td>Nein</td><td>47.03</td><td>63.81</td><td>63.34</td><td>51.41</td><td>52.04</td><td>73.74</td></tr>
+                <tr><td>FΩD Freddy Fuchur</td><td>Nein</td><td>54.27</td><td>63.05</td><td>61.32</td><td>75.80</td><td>66.35</td><td>34.16</td></tr>
+                <tr><td>Zossenfighter CS</td><td>Nein</td><td>29.52</td><td>69.51</td><td>67.34</td><td>2.66</td><td>34.88</td><td>72.71</td></tr>
+                <tr><td>DeadlyFX aka ACID Heok</td><td>Nein</td><td>57.28</td><td>71.82</td><td>76.64</td><td>83.47</td><td>55.55</td><td>84.01</td></tr>
+                <tr><td>Torham</td><td>Nein</td><td>18.14</td><td>52.88</td><td>50.81</td><td>30.45</td><td>20.94</td><td>34.67</td></tr>
+                <tr><td>FΩD Larykk</td><td>Nein</td><td>12.18</td><td>34.20</td><td>27.69</td><td>0.00</td><td>21.83</td><td>22.25</td></tr>
+                <tr><td>skugde</td><td>Nein</td><td>37.60</td><td>60.08</td><td>64.64</td><td>35.46</td><td>50.74</td><td>77.98</td></tr>
+                <tr><td>Bizkit</td><td>Nein</td><td>60.03</td><td>71.59</td><td>64.92</td><td>40.72</td><td>33.37</td><td>47.30</td></tr>
+                <tr><td>Snow xy</td><td>Nein</td><td>44.04</td><td>72.74</td><td>70.75</td><td>13.65</td><td>55.76</td><td>83.87</td></tr>
+                <tr><td>SF Kylvader</td><td>Nein</td><td>42.45</td><td>59.41</td><td>70.33</td><td>61.19</td><td>51.11</td><td>60.97</td></tr>
+                <tr><td>Alhina</td><td>Nein</td><td>85.95</td><td>87.66</td><td>79.33</td><td>92.78</td><td>63.87</td><td>88.99</td></tr>
+                <tr><td>Lenox</td><td>Nein</td><td>30.32</td><td>68.17</td><td>58.23</td><td>15.78</td><td>31.53</td><td>28.56</td></tr>
+                <tr><td>Kyle</td><td>Nein</td><td>22.96</td><td>60.85</td><td>56.92</td><td>55.32</td><td>28.29</td><td>72.63</td></tr>
+                <tr><td>DK m0x1337</td><td>Nein</td><td>25.84</td><td>51.12</td><td>54.24</td><td>26.19</td><td>31.87</td><td>69.20</td></tr>
+                <tr><td>KA1NSK1ND</td><td>Nein</td><td>41.02</td><td>65.25</td><td>67.34</td><td>52.38</td><td>42.66</td><td>77.47</td></tr>
+                <tr><td>Æco</td><td>Nein</td><td>71.33</td><td>72.74</td><td>79.74</td><td>93.95</td><td>59.69</td><td>60.57</td></tr>
+                <tr><td>Lanjesus</td><td>Nein</td><td>42.33</td><td>70.14</td><td>66.49</td><td>52.55</td><td>47.32</td><td>24.98</td></tr>
+                <tr><td>FΩD Dorinur</td><td>Nein</td><td>47.42</td><td>99.08</td><td>75.97</td><td>94.73</td><td>55.49</td><td>100.00</td></tr>
+                <tr><td>FΩD Hashtag</td><td>Nein</td><td>66.24</td><td>49.67</td><td>58.41</td><td>2.66</td><td>45.71</td><td>43.11</td></tr>
+                <tr><td>Wombat</td><td>Nein</td><td>30.00</td><td>63.68</td><td>70.42</td><td>64.65</td><td>53.28</td><td>68.26</td></tr>
+                <tr><td>FΩD BastosBanditos</td><td>Nein</td><td>47.42</td><td>72.79</td><td>74.36</td><td>97.52</td><td>54.52</td><td>60.26</td></tr>
+                <tr><td>FΩD Mc Gaiver</td><td>Ja</td><td>76.25</td><td>100.00</td><td>85.82</td><td>96.85</td><td>54.45</td><td>81.65</td></tr>
+                <tr><td>Caspar</td><td>Nein</td><td>55.74</td><td>99.08</td><td>72.09</td><td>95.89</td><td>50.31</td><td>80.29</td></tr>
+                <tr><td>Vin</td><td>Nein</td><td>41.78</td><td>47.62</td><td>69.83</td><td>52.38</td><td>48.47</td><td>53.34</td></tr>
+                            </tbody>
+        </table>
+        </div>
+        <div class="tab-pane" id="ImperialTrooper">
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Member</th><th>Ready</th><th>General Veers</th><th>Colonel Starck</th><th>Shoretrooper</th><th>Snowtrooper</th><th>Grand Admiral Thrawn</th>                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Ringlo</td><td>Nein</td><td>66.16</td><td>53.82</td><td>5.98</td><td>71.76</td><td>77.16</td></tr>
+                <tr><td>FΩD DarthTyranus</td><td>Ja</td><td>92.23</td><td>81.79</td><td>81.77</td><td>90.44</td><td>88.29</td></tr>
+                <tr><td>mutti</td><td>Nein</td><td>56.62</td><td>37.25</td><td>41.85</td><td>51.96</td><td>85.88</td></tr>
+                <tr><td>Exor Lupos</td><td>Nein</td><td>92.86</td><td>61.52</td><td>47.78</td><td>78.01</td><td>77.16</td></tr>
+                <tr><td>USeeMeNoMore</td><td>Ja</td><td>53.23</td><td>57.76</td><td>76.86</td><td>60.52</td><td>89.50</td></tr>
+                <tr><td>DK Yami</td><td>Nein</td><td>61.62</td><td>43.06</td><td>87.82</td><td>66.63</td><td>76.68</td></tr>
+                <tr><td>HansVader</td><td>Ja</td><td>72.15</td><td>75.48</td><td>84.71</td><td>89.27</td><td>97.25</td></tr>
+                <tr><td>FΩD TheOnlyGH</td><td>Nein</td><td>41.29</td><td>27.37</td><td>49.53</td><td>62.47</td><td>88.00</td></tr>
+                <tr><td>Watchman Bombassa</td><td>Nein</td><td>72.81</td><td>68.75</td><td>74.37</td><td>67.73</td><td>89.50</td></tr>
+                <tr><td>HanDrangSolo</td><td>Nein</td><td>76.91</td><td>60.41</td><td>5.98</td><td>67.81</td><td>65.80</td></tr>
+                <tr><td>ॐgotshiॐ</td><td>Nein</td><td>79.80</td><td>82.78</td><td>28.59</td><td>74.58</td><td>77.16</td></tr>
+                <tr><td>troubIem4ker</td><td>Ja</td><td>88.32</td><td>74.59</td><td>86.14</td><td>84.03</td><td>88.58</td></tr>
+                <tr><td>Bruenor</td><td>Ja</td><td>92.29</td><td>81.45</td><td>89.27</td><td>91.61</td><td>79.00</td></tr>
+                <tr><td>Bexis</td><td>Nein</td><td>36.33</td><td>36.57</td><td>45.39</td><td>66.23</td><td>80.00</td></tr>
+                <tr><td>MaceॐNow</td><td>Nein</td><td>75.25</td><td>65.86</td><td>33.57</td><td>70.53</td><td>78.08</td></tr>
+                <tr><td>BladeXXL</td><td>Ja</td><td>84.77</td><td>84.43</td><td>100.00</td><td>87.18</td><td>89.50</td></tr>
+                <tr><td>Rustikal</td><td>Nein</td><td>62.71</td><td>69.30</td><td>0.00</td><td>69.61</td><td>48.26</td></tr>
+                <tr><td>FΩD Swiftmind</td><td>Ja</td><td>49.81</td><td>55.82</td><td>56.56</td><td>64.15</td><td>89.50</td></tr>
+                <tr><td>J0HN D03</td><td>Ja</td><td>86.74</td><td>74.03</td><td>96.28</td><td>85.75</td><td>56.52</td></tr>
+                <tr><td>Faceless</td><td>Nein</td><td>85.55</td><td>70.62</td><td>67.64</td><td>76.86</td><td>89.50</td></tr>
+                <tr><td>dubidum</td><td>Ja</td><td>89.10</td><td>71.00</td><td>88.23</td><td>85.10</td><td>87.66</td></tr>
+                <tr><td>el tino</td><td>Ja</td><td>63.26</td><td>60.98</td><td>75.52</td><td>71.67</td><td>89.50</td></tr>
+                <tr><td>SB Tubifex</td><td>Ja</td><td>90.64</td><td>74.59</td><td>86.14</td><td>84.72</td><td>76.25</td></tr>
+                <tr><td>Mettbrötchen</td><td>Ja</td><td>96.84</td><td>81.12</td><td>90.44</td><td>91.22</td><td>89.21</td></tr>
+                <tr><td>Lakkes93</td><td>Ja</td><td>65.23</td><td>63.09</td><td>84.05</td><td>67.41</td><td>88.58</td></tr>
+                <tr><td>DK BenWalker</td><td>Ja</td><td>75.92</td><td>74.36</td><td>86.14</td><td>79.14</td><td>89.50</td></tr>
+                <tr><td>FΩD Freddy Fuchur</td><td>Ja</td><td>53.14</td><td>52.72</td><td>87.18</td><td>50.65</td><td>89.50</td></tr>
+                <tr><td>Zossenfighter CS</td><td>Ja</td><td>43.22</td><td>39.03</td><td>89.27</td><td>65.57</td><td>86.75</td></tr>
+                <tr><td>DeadlyFX aka ACID Heok</td><td>Ja</td><td>83.77</td><td>83.77</td><td>96.28</td><td>90.30</td><td>97.25</td></tr>
+                <tr><td>Torham</td><td>Nein</td><td>65.08</td><td>57.43</td><td>51.40</td><td>67.82</td><td>87.66</td></tr>
+                <tr><td>FΩD Larykk</td><td>Nein</td><td>41.55</td><td>29.85</td><td>46.77</td><td>54.45</td><td>73.94</td></tr>
+                <tr><td>skugde</td><td>Nein</td><td>52.27</td><td>63.17</td><td>54.97</td><td>64.19</td><td>71.75</td></tr>
+                <tr><td>Bizkit</td><td>Nein</td><td>67.57</td><td>75.25</td><td>92.78</td><td>56.22</td><td>89.50</td></tr>
+                <tr><td>Snow xy</td><td>Nein</td><td>71.33</td><td>43.13</td><td>52.49</td><td>69.60</td><td>88.58</td></tr>
+                <tr><td>SF Kylvader</td><td>Ja</td><td>88.77</td><td>75.81</td><td>87.18</td><td>88.23</td><td>88.58</td></tr>
+                <tr><td>Alhina</td><td>Nein</td><td>19.83</td><td>60.11</td><td>92.78</td><td>67.28</td><td>80.92</td></tr>
+                <tr><td>Lenox</td><td>Nein</td><td>51.47</td><td>68.65</td><td>14.52</td><td>74.75</td><td>78.71</td></tr>
+                <tr><td>Kyle</td><td>Nein</td><td>91.87</td><td>74.36</td><td>74.37</td><td>82.88</td><td>89.21</td></tr>
+                <tr><td>DK m0x1337</td><td>Nein</td><td>36.36</td><td>40.46</td><td>49.43</td><td>63.94</td><td>28.13</td></tr>
+                <tr><td>KA1NSK1ND</td><td>Nein</td><td>41.70</td><td>29.18</td><td>0.00</td><td>62.24</td><td>57.45</td></tr>
+                <tr><td>Æco</td><td>Ja</td><td>82.78</td><td>79.80</td><td>90.44</td><td>92.78</td><td>86.46</td></tr>
+                <tr><td>Lanjesus</td><td>Ja</td><td>72.09</td><td>66.74</td><td>81.10</td><td>73.34</td><td>86.46</td></tr>
+                <tr><td>FΩD Dorinur</td><td>Ja</td><td>92.86</td><td>82.45</td><td>89.27</td><td>80.49</td><td>79.00</td></tr>
+                <tr><td>FΩD Hashtag</td><td>Ja</td><td>96.84</td><td>71.00</td><td>96.28</td><td>87.64</td><td>97.25</td></tr>
+                <tr><td>Wombat</td><td>Nein</td><td>50.13</td><td>33.84</td><td>51.51</td><td>71.51</td><td>89.50</td></tr>
+                <tr><td>FΩD BastosBanditos</td><td>Nein</td><td>74.36</td><td>74.36</td><td>50.14</td><td>73.34</td><td>89.50</td></tr>
+                <tr><td>FΩD Mc Gaiver</td><td>Ja</td><td>97.89</td><td>84.43</td><td>74.19</td><td>82.17</td><td>77.16</td></tr>
+                <tr><td>Caspar</td><td>Nein</td><td>78.47</td><td>73.31</td><td>8.97</td><td>70.66</td><td>89.50</td></tr>
+                <tr><td>Vin</td><td>Nein</td><td>32.83</td><td>13.35</td><td>5.98</td><td>56.24</td><td>74.36</td></tr>
+                            </tbody>
+        </table>
+        </div>
+        <div class="tab-pane" id="ChexMix">
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Member</th><th>Ready</th><th>Commander Luke Skywalker</th><th>Han Solo</th><th>Death Trooper</th><th>Pao</th><th>Jedi Knight Anakin</th><th>CT-7567 &#34;Rex&#34;</th><th>Chirrut Îmwe</th>                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Ringlo</td><td>Ja</td><td>89.08</td><td>98.95</td><td>57.33</td><td>23.36</td><td>66.84</td><td>72.30</td><td>77.35</td></tr>
+                <tr><td>FΩD DarthTyranus</td><td>Ja</td><td>71.31</td><td>94.85</td><td>81.79</td><td>64.91</td><td>86.12</td><td>49.59</td><td>66.59</td></tr>
+                <tr><td>mutti</td><td>Nein</td><td>80.97</td><td>92.53</td><td>28.34</td><td>34.83</td><td>0.00</td><td>74.84</td><td>34.75</td></tr>
+                <tr><td>Exor Lupos</td><td>Ja</td><td>98.93</td><td>97.56</td><td>40.15</td><td>58.03</td><td>64.69</td><td>87.56</td><td>92.52</td></tr>
+                <tr><td>USeeMeNoMore</td><td>Ja</td><td>99.75</td><td>97.89</td><td>37.37</td><td>15.51</td><td>81.18</td><td>96.40</td><td>77.96</td></tr>
+                <tr><td>DK Yami</td><td>Ja</td><td>69.25</td><td>96.99</td><td>74.03</td><td>18.91</td><td>44.39</td><td>95.75</td><td>90.05</td></tr>
+                <tr><td>HansVader</td><td>Ja</td><td>80.60</td><td>97.89</td><td>80.79</td><td>23.36</td><td>76.44</td><td>41.18</td><td>76.68</td></tr>
+                <tr><td>FΩD TheOnlyGH</td><td>Ja</td><td>89.90</td><td>98.28</td><td>59.99</td><td>23.36</td><td>73.30</td><td>88.24</td><td>78.33</td></tr>
+                <tr><td>Watchman Bombassa</td><td>Ja</td><td>99.75</td><td>96.84</td><td>74.05</td><td>23.36</td><td>0.00</td><td>84.32</td><td>96.52</td></tr>
+                <tr><td>HanDrangSolo</td><td>Ja</td><td>99.75</td><td>100.00</td><td>71.52</td><td>59.53</td><td>78.50</td><td>67.21</td><td>88.61</td></tr>
+                <tr><td>ॐgotshiॐ</td><td>Ja</td><td>90.71</td><td>100.00</td><td>20.81</td><td>58.56</td><td>86.22</td><td>96.40</td><td>76.72</td></tr>
+                <tr><td>troubIem4ker</td><td>Ja</td><td>81.41</td><td>93.20</td><td>80.79</td><td>60.39</td><td>44.50</td><td>96.40</td><td>34.32</td></tr>
+                <tr><td>Bruenor</td><td>Ja</td><td>81.41</td><td>100.00</td><td>78.80</td><td>75.25</td><td>67.54</td><td>91.88</td><td>73.99</td></tr>
+                <tr><td>Bexis</td><td>Nein</td><td>90.45</td><td>98.37</td><td>12.05</td><td>12.85</td><td>30.11</td><td>90.58</td><td>86.39</td></tr>
+                <tr><td>MaceॐNow</td><td>Ja</td><td>100.00</td><td>100.00</td><td>20.81</td><td>34.07</td><td>95.27</td><td>97.60</td><td>75.52</td></tr>
+                <tr><td>BladeXXL</td><td>Ja</td><td>78.98</td><td>96.84</td><td>87.93</td><td>31.97</td><td>76.04</td><td>96.03</td><td>77.35</td></tr>
+                <tr><td>Rustikal</td><td>Ja</td><td>89.02</td><td>36.61</td><td>6.52</td><td>9.43</td><td>52.09</td><td>88.67</td><td>80.73</td></tr>
+                <tr><td>FΩD Swiftmind</td><td>Ja</td><td>81.41</td><td>89.10</td><td>19.45</td><td>28.95</td><td>32.80</td><td>64.32</td><td>77.65</td></tr>
+                <tr><td>J0HN D03</td><td>Ja</td><td>90.71</td><td>98.95</td><td>82.78</td><td>31.24</td><td>11.25</td><td>89.35</td><td>92.14</td></tr>
+                <tr><td>Faceless</td><td>Ja</td><td>81.16</td><td>99.67</td><td>73.48</td><td>31.60</td><td>91.88</td><td>87.99</td><td>48.88</td></tr>
+                <tr><td>dubidum</td><td>Ja</td><td>89.08</td><td>100.00</td><td>81.79</td><td>35.59</td><td>12.33</td><td>70.10</td><td>76.66</td></tr>
+                <tr><td>el tino</td><td>Ja</td><td>81.41</td><td>93.86</td><td>67.35</td><td>62.50</td><td>71.36</td><td>74.14</td><td>49.02</td></tr>
+                <tr><td>SB Tubifex</td><td>Ja</td><td>89.90</td><td>96.84</td><td>81.45</td><td>56.13</td><td>91.51</td><td>98.80</td><td>85.93</td></tr>
+                <tr><td>Mettbrötchen</td><td>Ja</td><td>81.16</td><td>98.62</td><td>45.78</td><td>16.22</td><td>77.91</td><td>73.60</td><td>71.61</td></tr>
+                <tr><td>Lakkes93</td><td>Ja</td><td>100.00</td><td>99.67</td><td>75.81</td><td>48.59</td><td>91.88</td><td>96.40</td><td>96.52</td></tr>
+                <tr><td>DK BenWalker</td><td>Ja</td><td>99.19</td><td>98.95</td><td>71.82</td><td>63.01</td><td>90.76</td><td>93.01</td><td>75.86</td></tr>
+                <tr><td>FΩD Freddy Fuchur</td><td>Ja</td><td>81.41</td><td>96.51</td><td>58.98</td><td>42.75</td><td>90.76</td><td>96.40</td><td>66.26</td></tr>
+                <tr><td>Zossenfighter CS</td><td>Ja</td><td>97.57</td><td>96.84</td><td>17.54</td><td>23.36</td><td>89.63</td><td>90.76</td><td>96.52</td></tr>
+                <tr><td>DeadlyFX aka ACID Heok</td><td>Ja</td><td>100.00</td><td>96.84</td><td>84.77</td><td>64.19</td><td>95.27</td><td>96.40</td><td>96.52</td></tr>
+                <tr><td>Torham</td><td>Nein</td><td>81.41</td><td>97.89</td><td>61.70</td><td>28.78</td><td>72.64</td><td>96.03</td><td>29.71</td></tr>
+                <tr><td>FΩD Larykk</td><td>Ja</td><td>78.98</td><td>98.95</td><td>17.81</td><td>28.55</td><td>38.20</td><td>69.38</td><td>69.69</td></tr>
+                <tr><td>skugde</td><td>Ja</td><td>99.19</td><td>98.95</td><td>3.39</td><td>2.26</td><td>91.88</td><td>26.57</td><td>93.24</td></tr>
+                <tr><td>Bizkit</td><td>Ja</td><td>89.69</td><td>97.32</td><td>81.45</td><td>29.93</td><td>5.79</td><td>96.40</td><td>79.16</td></tr>
+                <tr><td>Snow xy</td><td>Nein</td><td>90.71</td><td>74.36</td><td>49.96</td><td>31.03</td><td>80.75</td><td>60.30</td><td>0.00</td></tr>
+                <tr><td>SF Kylvader</td><td>Ja</td><td>90.71</td><td>97.89</td><td>82.78</td><td>7.19</td><td>70.28</td><td>93.77</td><td>96.15</td></tr>
+                <tr><td>Alhina</td><td>Ja</td><td>100.00</td><td>99.34</td><td>10.12</td><td>7.63</td><td>77.58</td><td>91.13</td><td>96.52</td></tr>
+                <tr><td>Lenox</td><td>Nein</td><td>90.71</td><td>99.67</td><td>3.39</td><td>2.26</td><td>0.00</td><td>100.00</td><td>52.52</td></tr>
+                <tr><td>Kyle</td><td>Ja</td><td>89.90</td><td>98.95</td><td>80.79</td><td>4.19</td><td>43.19</td><td>89.63</td><td>93.24</td></tr>
+                <tr><td>DK m0x1337</td><td>Ja</td><td>81.16</td><td>97.23</td><td>16.50</td><td>11.55</td><td>80.71</td><td>78.71</td><td>80.07</td></tr>
+                <tr><td>KA1NSK1ND</td><td>Nein</td><td>100.00</td><td>100.00</td><td>8.87</td><td>8.66</td><td>0.00</td><td>34.43</td><td>39.07</td></tr>
+                <tr><td>Æco</td><td>Ja</td><td>79.79</td><td>98.95</td><td>80.79</td><td>61.80</td><td>79.92</td><td>72.36</td><td>94.33</td></tr>
+                <tr><td>Lanjesus</td><td>Ja</td><td>78.73</td><td>96.51</td><td>70.65</td><td>44.55</td><td>33.74</td><td>69.59</td><td>96.52</td></tr>
+                <tr><td>FΩD Dorinur</td><td>Ja</td><td>100.00</td><td>93.86</td><td>72.43</td><td>60.11</td><td>87.23</td><td>8.68</td><td>0.00</td></tr>
+                <tr><td>FΩD Hashtag</td><td>Ja</td><td>99.49</td><td>96.84</td><td>96.84</td><td>62.04</td><td>11.08</td><td>98.80</td><td>64.49</td></tr>
+                <tr><td>Wombat</td><td>Ja</td><td>81.41</td><td>100.00</td><td>34.97</td><td>31.77</td><td>77.30</td><td>97.60</td><td>19.68</td></tr>
+                <tr><td>FΩD BastosBanditos</td><td>Ja</td><td>100.00</td><td>77.03</td><td>22.59</td><td>63.59</td><td>81.12</td><td>97.60</td><td>0.00</td></tr>
+                <tr><td>FΩD Mc Gaiver</td><td>Ja</td><td>71.31</td><td>84.77</td><td>84.77</td><td>62.97</td><td>89.73</td><td>72.82</td><td>74.66</td></tr>
+                <tr><td>Caspar</td><td>Ja</td><td>100.00</td><td>100.00</td><td>33.15</td><td>44.56</td><td>70.28</td><td>96.40</td><td>91.05</td></tr>
+                <tr><td>Vin</td><td>Ja</td><td>90.71</td><td>79.54</td><td>3.45</td><td>5.14</td><td>67.72</td><td>82.75</td><td>74.71</td></tr>
+                            </tbody>
+        </table>
+        </div>
+        <div class="tab-pane" id="Zalpatine">
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Member</th><th>Ready</th><th>Emperor Palpatine</th><th>Darth Vader</th><th>Sith Trooper</th><th>Grand Moff Tarkin</th><th>Darth Nihilus</th>                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Ringlo</td><td>Nein</td><td>87.66</td><td>84.15</td><td>5.98</td><td>67.97</td><td>6.64</td></tr>
+                <tr><td>FΩD DarthTyranus</td><td>Nein</td><td>87.66</td><td>86.75</td><td>74.05</td><td>72.79</td><td>64.08</td></tr>
+                <tr><td>mutti</td><td>Nein</td><td>69.61</td><td>76.85</td><td>39.39</td><td>64.59</td><td>62.28</td></tr>
+                <tr><td>Exor Lupos</td><td>Nein</td><td>89.50</td><td>99.08</td><td>44.31</td><td>75.96</td><td>76.25</td></tr>
+                <tr><td>USeeMeNoMore</td><td>Nein</td><td>97.30</td><td>86.75</td><td>23.29</td><td>67.96</td><td>72.21</td></tr>
+                <tr><td>DK Yami</td><td>Ja</td><td>94.16</td><td>86.75</td><td>93.95</td><td>55.24</td><td>87.80</td></tr>
+                <tr><td>HansVader</td><td>Ja</td><td>81.85</td><td>81.56</td><td>27.47</td><td>64.89</td><td>67.68</td></tr>
+                <tr><td>FΩD TheOnlyGH</td><td>Ja</td><td>72.50</td><td>84.60</td><td>75.78</td><td>63.64</td><td>74.60</td></tr>
+                <tr><td>Watchman Bombassa</td><td>Nein</td><td>72.79</td><td>86.46</td><td>12.28</td><td>67.68</td><td>74.52</td></tr>
+                <tr><td>HanDrangSolo</td><td>Nein</td><td>80.28</td><td>89.21</td><td>16.91</td><td>67.89</td><td>39.42</td></tr>
+                <tr><td>ॐgotshiॐ</td><td>Nein</td><td>86.75</td><td>87.66</td><td>12.13</td><td>70.29</td><td>35.91</td></tr>
+                <tr><td>troubIem4ker</td><td>Nein</td><td>71.92</td><td>86.46</td><td>18.95</td><td>60.75</td><td>55.67</td></tr>
+                <tr><td>Bruenor</td><td>Nein</td><td>73.38</td><td>84.15</td><td>59.50</td><td>75.38</td><td>72.79</td></tr>
+                <tr><td>Bexis</td><td>Nein</td><td>68.52</td><td>86.46</td><td>15.93</td><td>62.16</td><td>73.15</td></tr>
+                <tr><td>MaceॐNow</td><td>Nein</td><td>74.23</td><td>88.58</td><td>25.60</td><td>77.16</td><td>72.79</td></tr>
+                <tr><td>BladeXXL</td><td>Nein</td><td>100.00</td><td>100.00</td><td>56.21</td><td>78.08</td><td>89.50</td></tr>
+                <tr><td>Rustikal</td><td>Ja</td><td>97.88</td><td>75.75</td><td>95.16</td><td>76.49</td><td>100.00</td></tr>
+                <tr><td>FΩD Swiftmind</td><td>Ja</td><td>70.29</td><td>78.96</td><td>64.15</td><td>58.82</td><td>41.97</td></tr>
+                <tr><td>J0HN D03</td><td>Nein</td><td>73.36</td><td>89.50</td><td>3.99</td><td>79.00</td><td>44.40</td></tr>
+                <tr><td>Faceless</td><td>Nein</td><td>99.71</td><td>78.71</td><td>70.78</td><td>70.87</td><td>71.92</td></tr>
+                <tr><td>dubidum</td><td>Nein</td><td>73.65</td><td>85.02</td><td>18.29</td><td>61.19</td><td>82.43</td></tr>
+                <tr><td>el tino</td><td>Ja</td><td>89.50</td><td>89.50</td><td>98.76</td><td>66.96</td><td>89.50</td></tr>
+                <tr><td>SB Tubifex</td><td>Ja</td><td>83.29</td><td>73.65</td><td>67.77</td><td>61.88</td><td>76.25</td></tr>
+                <tr><td>Mettbrötchen</td><td>Nein</td><td>75.96</td><td>96.96</td><td>61.77</td><td>74.60</td><td>83.29</td></tr>
+                <tr><td>Lakkes93</td><td>Ja</td><td>98.17</td><td>76.25</td><td>61.55</td><td>61.98</td><td>76.25</td></tr>
+                <tr><td>DK BenWalker</td><td>Ja</td><td>87.66</td><td>86.75</td><td>80.94</td><td>69.51</td><td>77.16</td></tr>
+                <tr><td>FΩD Freddy Fuchur</td><td>Ja</td><td>85.02</td><td>86.75</td><td>59.59</td><td>74.23</td><td>68.74</td></tr>
+                <tr><td>Zossenfighter CS</td><td>Nein</td><td>97.25</td><td>80.78</td><td>5.98</td><td>62.16</td><td>72.79</td></tr>
+                <tr><td>DeadlyFX aka ACID Heok</td><td>Ja</td><td>76.25</td><td>86.75</td><td>96.28</td><td>76.25</td><td>87.66</td></tr>
+                <tr><td>Torham</td><td>Nein</td><td>71.35</td><td>83.87</td><td>0.00</td><td>73.95</td><td>63.36</td></tr>
+                <tr><td>FΩD Larykk</td><td>Nein</td><td>86.46</td><td>75.97</td><td>51.80</td><td>60.48</td><td>86.75</td></tr>
+                <tr><td>skugde</td><td>Nein</td><td>87.66</td><td>86.75</td><td>5.98</td><td>66.19</td><td>77.16</td></tr>
+                <tr><td>Bizkit</td><td>Ja</td><td>89.00</td><td>83.87</td><td>74.40</td><td>76.25</td><td>100.00</td></tr>
+                <tr><td>Snow xy</td><td>Nein</td><td>88.58</td><td>98.17</td><td>18.84</td><td>69.37</td><td>87.66</td></tr>
+                <tr><td>SF Kylvader</td><td>Ja</td><td>100.00</td><td>87.66</td><td>64.15</td><td>69.51</td><td>86.75</td></tr>
+                <tr><td>Alhina</td><td>Ja</td><td>72.79</td><td>83.95</td><td>68.59</td><td>70.42</td><td>58.68</td></tr>
+                <tr><td>Lenox</td><td>Nein</td><td>83.87</td><td>83.29</td><td>17.55</td><td>69.23</td><td>79.00</td></tr>
+                <tr><td>Kyle</td><td>Nein</td><td>87.09</td><td>77.79</td><td>42.44</td><td>49.08</td><td>86.46</td></tr>
+                <tr><td>DK m0x1337</td><td>Nein</td><td>70.09</td><td>80.84</td><td>51.05</td><td>55.93</td><td>29.10</td></tr>
+                <tr><td>KA1NSK1ND</td><td>Nein</td><td>81.84</td><td>85.02</td><td>18.95</td><td>74.71</td><td>72.79</td></tr>
+                <tr><td>Æco</td><td>Nein</td><td>100.00</td><td>87.66</td><td>58.75</td><td>73.36</td><td>87.66</td></tr>
+                <tr><td>Lanjesus</td><td>Ja</td><td>87.66</td><td>87.66</td><td>78.40</td><td>62.47</td><td>72.74</td></tr>
+                <tr><td>FΩD Dorinur</td><td>Nein</td><td>100.00</td><td>89.50</td><td>49.03</td><td>64.27</td><td>70.69</td></tr>
+                <tr><td>FΩD Hashtag</td><td>Nein</td><td>87.38</td><td>86.46</td><td>55.94</td><td>71.92</td><td>85.88</td></tr>
+                <tr><td>Wombat</td><td>Nein</td><td>99.08</td><td>77.16</td><td>52.17</td><td>73.65</td><td>54.28</td></tr>
+                <tr><td>FΩD BastosBanditos</td><td>Nein</td><td>96.39</td><td>86.75</td><td>22.40</td><td>75.38</td><td>37.66</td></tr>
+                <tr><td>FΩD Mc Gaiver</td><td>Ja</td><td>75.46</td><td>86.75</td><td>74.70</td><td>87.38</td><td>75.33</td></tr>
+                <tr><td>Caspar</td><td>Nein</td><td>100.00</td><td>95.23</td><td>8.97</td><td>72.21</td><td>72.79</td></tr>
+                <tr><td>Vin</td><td>Nein</td><td>70.83</td><td>58.99</td><td>26.80</td><td>58.63</td><td>53.45</td></tr>
+                            </tbody>
+        </table>
+        </div>
+        <div class="tab-pane" id="KruFO">
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Member</th><th>Ready</th><th>Kylo Ren (Unmasked)</th><th>Kylo Ren</th><th>First Order Stormtrooper</th><th>First Order Officer</th><th>First Order Executioner</th><th>First Order TIE Pilot</th>                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Ringlo</td><td>Nein</td><td>2.95</td><td>95.85</td><td>66.65</td><td>72.08</td><td>2.66</td><td>74.64</td></tr>
+                <tr><td>FΩD DarthTyranus</td><td>Ja</td><td>62.75</td><td>76.70</td><td>63.53</td><td>72.72</td><td>66.89</td><td>72.98</td></tr>
+                <tr><td>mutti</td><td>Ja</td><td>51.80</td><td>98.62</td><td>55.23</td><td>65.09</td><td>8.00</td><td>55.73</td></tr>
+                <tr><td>Exor Lupos</td><td>Ja</td><td>56.69</td><td>91.48</td><td>62.89</td><td>84.45</td><td>4.81</td><td>76.76</td></tr>
+                <tr><td>USeeMeNoMore</td><td>Nein</td><td>17.98</td><td>97.89</td><td>61.43</td><td>59.34</td><td>11.15</td><td>70.16</td></tr>
+                <tr><td>DK Yami</td><td>Ja</td><td>82.03</td><td>93.29</td><td>55.71</td><td>45.90</td><td>21.09</td><td>78.28</td></tr>
+                <tr><td>HansVader</td><td>Nein</td><td>2.95</td><td>65.91</td><td>51.79</td><td>59.55</td><td>2.66</td><td>77.94</td></tr>
+                <tr><td>FΩD TheOnlyGH</td><td>Ja</td><td>73.15</td><td>97.56</td><td>63.14</td><td>58.89</td><td>22.16</td><td>82.06</td></tr>
+                <tr><td>Watchman Bombassa</td><td>Nein</td><td>5.40</td><td>96.18</td><td>56.73</td><td>68.93</td><td>2.66</td><td>84.14</td></tr>
+                <tr><td>HanDrangSolo</td><td>Nein</td><td>40.10</td><td>73.57</td><td>67.29</td><td>82.94</td><td>8.15</td><td>75.73</td></tr>
+                <tr><td>ॐgotshiॐ</td><td>Nein</td><td>7.50</td><td>67.97</td><td>66.65</td><td>90.83</td><td>13.10</td><td>75.74</td></tr>
+                <tr><td>troubIem4ker</td><td>Ja</td><td>83.87</td><td>90.88</td><td>77.94</td><td>89.27</td><td>80.58</td><td>83.45</td></tr>
+                <tr><td>Bruenor</td><td>Ja</td><td>72.13</td><td>96.84</td><td>68.32</td><td>88.60</td><td>4.05</td><td>87.43</td></tr>
+                <tr><td>Bexis</td><td>Nein</td><td>27.79</td><td>94.19</td><td>64.11</td><td>64.69</td><td>20.37</td><td>75.74</td></tr>
+                <tr><td>MaceॐNow</td><td>Nein</td><td>17.19</td><td>100.00</td><td>61.54</td><td>71.71</td><td>19.28</td><td>73.72</td></tr>
+                <tr><td>BladeXXL</td><td>Nein</td><td>40.73</td><td>94.85</td><td>63.12</td><td>88.88</td><td>23.05</td><td>100.00</td></tr>
+                <tr><td>Rustikal</td><td>Nein</td><td>5.67</td><td>97.56</td><td>84.14</td><td>91.89</td><td>6.34</td><td>76.99</td></tr>
+                <tr><td>FΩD Swiftmind</td><td>Ja</td><td>100.00</td><td>80.65</td><td>60.96</td><td>90.83</td><td>10.17</td><td>79.27</td></tr>
+                <tr><td>J0HN D03</td><td>Nein</td><td>17.00</td><td>63.26</td><td>64.11</td><td>83.86</td><td>2.66</td><td>100.00</td></tr>
+                <tr><td>Faceless</td><td>Nein</td><td>11.09</td><td>93.53</td><td>67.29</td><td>71.71</td><td>2.67</td><td>78.63</td></tr>
+                <tr><td>dubidum</td><td>Ja</td><td>36.86</td><td>93.09</td><td>59.45</td><td>66.44</td><td>43.09</td><td>78.84</td></tr>
+                <tr><td>el tino</td><td>Ja</td><td>43.89</td><td>71.28</td><td>64.88</td><td>83.43</td><td>18.95</td><td>73.81</td></tr>
+                <tr><td>SB Tubifex</td><td>Nein</td><td>47.37</td><td>63.42</td><td>61.22</td><td>69.51</td><td>51.94</td><td>76.09</td></tr>
+                <tr><td>Mettbrötchen</td><td>Nein</td><td>72.85</td><td>98.95</td><td>97.46</td><td>93.95</td><td>23.04</td><td>97.46</td></tr>
+                <tr><td>Lakkes93</td><td>Ja</td><td>53.64</td><td>96.84</td><td>62.50</td><td>67.16</td><td>62.79</td><td>82.42</td></tr>
+                <tr><td>DK BenWalker</td><td>Ja</td><td>86.75</td><td>97.89</td><td>65.43</td><td>71.18</td><td>79.75</td><td>74.48</td></tr>
+                <tr><td>FΩD Freddy Fuchur</td><td>Nein</td><td>37.71</td><td>96.84</td><td>65.04</td><td>68.96</td><td>27.26</td><td>88.87</td></tr>
+                <tr><td>Zossenfighter CS</td><td>Ja</td><td>97.25</td><td>78.80</td><td>67.22</td><td>89.27</td><td>2.66</td><td>89.91</td></tr>
+                <tr><td>DeadlyFX aka ACID Heok</td><td>Ja</td><td>87.66</td><td>84.77</td><td>84.14</td><td>92.71</td><td>77.61</td><td>84.14</td></tr>
+                <tr><td>Torham</td><td>Nein</td><td>2.95</td><td>94.52</td><td>58.47</td><td>65.26</td><td>2.66</td><td>77.94</td></tr>
+                <tr><td>FΩD Larykk</td><td>Nein</td><td>17.99</td><td>88.21</td><td>59.21</td><td>67.36</td><td>2.66</td><td>66.77</td></tr>
+                <tr><td>skugde</td><td>Nein</td><td>2.95</td><td>71.33</td><td>65.04</td><td>85.75</td><td>2.66</td><td>76.09</td></tr>
+                <tr><td>Bizkit</td><td>Nein</td><td>87.38</td><td>61.24</td><td>0.00</td><td>71.50</td><td>2.66</td><td>75.74</td></tr>
+                <tr><td>Snow xy</td><td>Ja</td><td>56.47</td><td>97.89</td><td>65.21</td><td>87.18</td><td>35.92</td><td>75.74</td></tr>
+                <tr><td>SF Kylvader</td><td>Ja</td><td>57.39</td><td>94.52</td><td>61.37</td><td>88.26</td><td>83.08</td><td>81.04</td></tr>
+                <tr><td>Alhina</td><td>Nein</td><td>16.51</td><td>65.89</td><td>64.11</td><td>75.29</td><td>2.66</td><td>81.96</td></tr>
+                <tr><td>Lenox</td><td>Ja</td><td>85.88</td><td>100.00</td><td>61.77</td><td>83.04</td><td>2.66</td><td>74.10</td></tr>
+                <tr><td>Kyle</td><td>Nein</td><td>16.83</td><td>96.84</td><td>67.92</td><td>89.66</td><td>7.05</td><td>97.21</td></tr>
+                <tr><td>DK m0x1337</td><td>Nein</td><td>9.49</td><td>63.77</td><td>74.80</td><td>85.87</td><td>7.52</td><td>76.12</td></tr>
+                <tr><td>KA1NSK1ND</td><td>Nein</td><td>64.80</td><td>69.83</td><td>0.00</td><td>80.81</td><td>8.85</td><td>69.52</td></tr>
+                <tr><td>Æco</td><td>Nein</td><td>69.99</td><td>93.86</td><td>69.80</td><td>87.96</td><td>54.31</td><td>78.63</td></tr>
+                <tr><td>Lanjesus</td><td>Ja</td><td>54.43</td><td>61.81</td><td>54.14</td><td>76.49</td><td>59.46</td><td>55.41</td></tr>
+                <tr><td>FΩD Dorinur</td><td>Ja</td><td>56.76</td><td>96.84</td><td>63.86</td><td>87.57</td><td>67.08</td><td>83.11</td></tr>
+                <tr><td>FΩD Hashtag</td><td>Nein</td><td>52.58</td><td>62.10</td><td>2.36</td><td>65.72</td><td>2.66</td><td>78.28</td></tr>
+                <tr><td>Wombat</td><td>Nein</td><td>12.51</td><td>95.51</td><td>80.00</td><td>76.77</td><td>2.66</td><td>87.43</td></tr>
+                <tr><td>FΩD BastosBanditos</td><td>Nein</td><td>33.24</td><td>69.90</td><td>63.19</td><td>88.23</td><td>25.65</td><td>90.50</td></tr>
+                <tr><td>FΩD Mc Gaiver</td><td>Ja</td><td>85.83</td><td>85.16</td><td>65.85</td><td>81.50</td><td>67.08</td><td>80.00</td></tr>
+                <tr><td>Caspar</td><td>Nein</td><td>2.95</td><td>96.51</td><td>65.73</td><td>87.50</td><td>2.66</td><td>69.45</td></tr>
+                <tr><td>Vin</td><td>Ja</td><td>54.31</td><td>79.41</td><td>59.91</td><td>62.92</td><td>2.73</td><td>65.26</td></tr>
+                            </tbody>
+        </table>
+        </div>
+            
+    </div>
 
 </body>
 </html>
